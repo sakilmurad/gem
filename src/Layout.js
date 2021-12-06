@@ -4,14 +4,8 @@ import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { ThemeProvider, createTheme  } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled, alpha } from '@mui/material/styles';
@@ -20,8 +14,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Sidebar from './Sidebar';
 import Link from 'next/link'
 import LinearProgress from '@mui/material/LinearProgress';
-
-
+import Paper from '@mui/material/Paper';
+import Switch from './Switch';
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -64,19 +58,32 @@ const Search = styled('div')(({ theme }) => ({
 
 const drawerWidth = 240;
 
-export default function Layout({data, isLoading, children}) {
-    
-    const { window } = "";
+export default function Layout({data, isLoading, children}, props) {
+
+    const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
  
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
       };
       const container = window !== undefined ? () => window().document.body : undefined;
+      const [dark, setDark] = React.useState(false)
+
+      const theme = createTheme({
+          palette: {
+              type: dark ? 'dark' : 'light',
+              mode: dark ? 'dark' : 'light',
+          },
+      })
+
+      const HandleThemeChange = () =>{
+        setDark(!dark);
+      }
   
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <Paper>
     <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         {isLoading?<LinearProgress />:null}
@@ -109,7 +116,7 @@ export default function Layout({data, isLoading, children}) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          
+         <Switch  handle={HandleThemeChange}/>
         </Toolbar>
       </AppBar>
       <Box sx={{ display: 'flex' }}>
@@ -151,6 +158,8 @@ export default function Layout({data, isLoading, children}) {
        {children}
       </Box>
     </Box>
-    </>
+    </Paper>
+    </ThemeProvider>
   );
 }
+
