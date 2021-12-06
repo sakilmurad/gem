@@ -5,16 +5,22 @@ import path from 'path'
 import matter from 'gray-matter'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import Button from '@mui/material/Button';
-import Layout from '../src/Layout'
+import Head from "next/head";
 
 const components = {  Button, SyntaxHighlighter }
 
-const Post = ({ frontMatter: { title }, mdxSource }) => {
+const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   return (
+    <>
+     <Head>
+       <title>{title}</title>
+       <meta name="description" content={description} />
+    </Head>
     <div className="mt-4">
       <h1>{title}</h1>
       <MDXRemote {...mdxSource} components={components}/>
     </div>
+    </>
   )
 }
 
