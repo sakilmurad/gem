@@ -5,7 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { ThemeProvider, createTheme  } from '@mui/material/styles';
+import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { styled, alpha } from '@mui/material/styles';
@@ -69,12 +69,19 @@ export default function Layout({data, isLoading, children}, props) {
       const container = window !== undefined ? () => window().document.body : undefined;
       const [dark, setDark] = React.useState(false)
 
-      const theme = createTheme({
+      let theme = createTheme({
           palette: {
               type: dark ? 'dark' : 'light',
               mode: dark ? 'dark' : 'light',
           },
-      })
+          typography: {
+            h1: {
+              fontSize: "3rem",
+              fontWeight: 550,
+            },
+          }
+      });
+      theme = responsiveFontSizes(theme);
 
       const HandleThemeChange = () =>{
         setDark(!dark);

@@ -6,18 +6,43 @@ import matter from 'gray-matter'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import Button from '@mui/material/Button';
 import Head from "next/head";
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
 
 const components = {  Button, SyntaxHighlighter }
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
+  // const contentString = renderToString({mdxSource});
+
+  const getHeadings = (source) => {
+    const regex = /<h2>(.*?)<\/h2>/g;
+
+    if (source.match(regex)) {
+      return source.match(regex).map((heading) => {
+        const headingText = heading.replace("<h2>", "").replace("</h2>", "");
+
+        const link = "#" + headingText.replace(/ /g, "_").toLowerCase();
+
+        return {
+          text: headingText,
+          link,
+        };
+      });
+    }
+
+    return [];
+  };
+  // const headings = getHeadings(contentString);
+
   return (
     <>
      <Head>
        <title>{title}</title>
        <meta name="description" content={description} />
     </Head>
-    <div className="mt-4">
+    <div >
       <h1>{title}</h1>
+      <Divider/>
       <MDXRemote {...mdxSource} components={components}/>
     </div>
     </>

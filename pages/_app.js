@@ -1,24 +1,23 @@
 import '../styles/globals.css'
 import Layout from '../src/Layout'
-import { data } from '../src/data'
+// import { data } from '../src/data.json'
 import Router from 'next/router';
 import { useState } from 'react';
+
+const data = require("../src/data.json");
 
 function MyApp({ Component, pageProps }) {
   const [isLoading, setLoading] = useState(false);
 Router.onRouteChangeStart = () => {
   setLoading(true);
-  console.log('onRouteChangeStart triggered');
 };
 
 Router.onRouteChangeComplete = () => {
   setLoading(false);
-  console.log('onRouteChangeComplete triggered');
 };
 
 Router.onRouteChangeError = () => {
   setLoading(false);
-  console.log('onRouteChangeError triggered');
 };
 
   return(<>
