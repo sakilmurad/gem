@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.6.0",
     "@mdx-js/loader": "^1.6.22",
     "@mui/icons-material": "^5.2.0",
+    "@mui/lab": "^5.0.0-alpha.59",
     "@mui/styles": "^5.2.2",
     "@next/mdx": "^12.0.6",
     "cookies-next": "^2.0.3",
