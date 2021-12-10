@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import Head from "next/head";
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import remarkToc from 'remark-toc'
 import { useEffect } from 'react'
 
 const components = {  Button, SyntaxHighlighter }
@@ -16,7 +15,6 @@ const components = {  Button, SyntaxHighlighter }
 
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
-  // const contentString = renderToString({mdxSource});
 
   const getHeadings = (source) => {
     const regex = /<h2>(.*?)<\/h2>/g;
@@ -55,7 +53,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
     </Head>
     <div >
     <ins className="adsbygoogle"
-     style="display:block"
+     style={{display:"block"}}
      data-ad-client="ca-pub-1680355976010606"
      data-ad-slot="1672653056"
      data-ad-format="auto"

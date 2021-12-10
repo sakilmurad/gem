@@ -35,7 +35,7 @@ const Home = ({ posts }) => {
         <meta name="description" content="Breifly explination about GeM - Government e-Marketplace" />
       </Head>
       <ins className="adsbygoogle"
-     style="display:block"
+    style={{display:"block"}}
      data-ad-client="ca-pub-1680355976010606"
      data-ad-slot="1672653056"
      data-ad-format="auto"
