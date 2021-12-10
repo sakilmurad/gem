@@ -143,7 +143,7 @@ export default function Layout({data, isLoading, children}, props) {
           <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
         {/* {console.log(data)} */}
-        <Sidebar data={data} handleDrawerToggle/>
+        <Sidebar data={data} handleDrawerToggle = {handleDrawerToggle}/>
         </Box>
         </Drawer>
       <Drawer

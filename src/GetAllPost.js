@@ -4,6 +4,12 @@ const dir = '/project/gem/posts'
 const files = fs.readdirSync(dir)
 let filesArray = [{"title":"What is GeM","slug":"/"}];
 
+function createdDate (file) {  
+    const { birthtime } = fs.statSync(`/project/gem/posts/${file}`)
+  
+    return birthtime
+  }
+
 for (const file of files) {
     let fileDetail = file.replace('.mdx', '').replace('-',' ').replace('_',' ');
     const arr = fileDetail.split(" ");
@@ -12,13 +18,21 @@ for (const file of files) {
     
     }
     const str2 = arr.join(" ");
+    const filedate = createdDate(file);
     const NewArray =    {
         title: str2,
-        slug: file.replace('.mdx', '')
+        slug: file.replace('.mdx', ''),
+        created : filedate
     };
     filesArray.push(NewArray);
 }
+
+// short the array 
+filesArray.sort(function (a, b) {
+	var dateA = new Date(a.created), dateB = new Date(b.created)
+	return dateA - dateB
+});
 const pathOfDataFile = "/project/gem/src/data.json";
 //write file
 fs.writeFileSync(pathOfDataFile, JSON.stringify(filesArray));
-console.log(filesArray);
+// console.log(filesArray);

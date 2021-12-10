@@ -9,6 +9,9 @@ import  ListItem  from '@mui/material/ListItem';
 function Sidebar(props) {
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleListItemClick = (event, index) => {
+    if(props.handleDrawerToggle){
+      props.handleDrawerToggle();
+    }
     setSelectedIndex(index);
   };
 

@@ -35,6 +35,18 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
     return [];
   };
  
+
+  useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle");
+    var adsLenght = ads.length
+    for (var i = 0; i < adsLenght; i++) {
+      ads[i].innerHTML = "";
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+}, []);
+ 
   return (
     <>
      <Head>
