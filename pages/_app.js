@@ -25,11 +25,22 @@ function MyApp({ Component, pageProps }) {
   //   }
   // }, [router.events])
 
+  // show ads function 
+  const ShowAdsense = () =>{
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+  }
+
 Router.onRouteChangeStart = () => {
   setLoading(true);
 };
 
 Router.onRouteChangeComplete = () => {
+  ShowAdsense;
   setLoading(false);
 };
 
