@@ -8,8 +8,11 @@ import Button from '@mui/material/Button';
 import Head from "next/head";
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
+import remarkToc from 'remark-toc'
 
 const components = {  Button, SyntaxHighlighter }
+
+
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   // const contentString = renderToString({mdxSource});
@@ -33,7 +36,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
     return [];
   };
   // const headings = getHeadings(contentString);
-
+ 
   return (
     <>
      <Head>

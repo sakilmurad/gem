@@ -105,7 +105,7 @@ const Home = ({ posts }) => {
             <li>No charges or fee for getting registered</li>
             <li>Special provisions and sections for startups, MSMEs and Emporium products</li>
             <li>Fully online, paperless and contactless platform</li>
-            <li>A list of prerequisites for the seller registration has been made available so that it becomes a guide to the seller during registration <a href="https://gem.gov.in/support/sellers/?lang=english">https://gem.gov.in/support/sellers/?lang=english</a></li>
+            <li>A list of prerequisites for the seller registration has been made available so that it becomes a guide to the seller during registration.</li>
             <li>Brand application and brand approval process has been revamped for sellers</li>
             <li>Multiple invoice for single order</li>
             <li>Easy access to participate in bids/reverse auction</li>
