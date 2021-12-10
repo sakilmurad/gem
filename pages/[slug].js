@@ -9,6 +9,7 @@ import Head from "next/head";
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import remarkToc from 'remark-toc'
+import { useEffect } from 'react'
 
 const components = {  Button, SyntaxHighlighter }
 
@@ -35,7 +36,16 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
 
     return [];
   };
-  // const headings = getHeadings(contentString);
+ 
+
+  useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+}, []);
  
   return (
     <>
@@ -44,6 +54,12 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
        <meta name="description" content={description} />
     </Head>
     <div >
+    <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1680355976010606"
+     data-ad-slot="1672653056"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
       <h1>{title}</h1>
       <Divider/>
       <MDXRemote {...mdxSource} components={components}/>

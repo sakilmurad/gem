@@ -11,6 +11,7 @@ import TabList from '@mui/lab/TabList';
 import Button from '@mui/material/Button';
 import LaunchIcon from '@mui/icons-material/Launch';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
+import { useEffect } from 'react';
 
 const Home = ({ posts }) => {
   const [value, setValue] = React.useState("1");
@@ -18,6 +19,14 @@ const Home = ({ posts }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+  useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+}, []);
 
   return (
     <>
@@ -25,6 +34,12 @@ const Home = ({ posts }) => {
         <title>What is GeM - Government e-Marketplace</title>
         <meta name="description" content="Breifly explination about GeM - Government e-Marketplace" />
       </Head>
+      <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-1680355976010606"
+     data-ad-slot="1672653056"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
       <Typography variant="h1">GeM - Government e-Marketplace</Typography>
       <Divider />
       <p>
