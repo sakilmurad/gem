@@ -13,7 +13,7 @@ class MyDocument extends Document {
             <meta name="robots" content="index, follow" />
             <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=G-03XG9SMRE5`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -21,7 +21,7 @@ class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+            gtag('config', 'G-03XG9SMRE5', {
               page_path: window.location.pathname,
             });
           `,
