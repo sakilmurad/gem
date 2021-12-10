@@ -40,7 +40,7 @@ Router.onRouteChangeStart = () => {
 };
 
 Router.onRouteChangeComplete = () => {
-  ShowAdsense;
+  ShowAdsense();
   setLoading(false);
 };
 
