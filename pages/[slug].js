@@ -8,39 +8,24 @@ import Button from '@mui/material/Button';
 import Head from "next/head";
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import H2 from "../src/heading2";
 
-const components = {  Button, SyntaxHighlighter }
-
-
+const components = {  Button, SyntaxHighlighter, h2: H2, h3: H2 }
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
-
-  const getHeadings = (source) => {
-    const regex = /<h2>(.*?)<\/h2>/g;
-
-    if (source.match(regex)) {
-      return source.match(regex).map((heading) => {
-        const headingText = heading.replace("<h2>", "").replace("</h2>", "");
-
-        const link = "#" + headingText.replace(/ /g, "_").toLowerCase();
-
-        return {
-          text: headingText,
-          link,
-        };
-      });
-    }
-
-    return [];
-  };
- 
-
+  const [toc, setToc] = useState([]);
   useEffect(() => {
+    var h1Text = "";
+    // var h1Text = document.querySelector("h2").innerText;
+    setToc(h1Text);
+    console.log(h1Text);
     var ads = document.getElementsByClassName("adsbygoogle");
     var adsLenght = ads.length
     for (var i = 0; i < adsLenght; i++) {
       ads[i].innerHTML = "";
+    }
+    for (var i = 0; i < adsLenght; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) { }
@@ -61,6 +46,10 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
       <h1>{title}</h1>
+      <span>On This Page</span>
+        <ol>
+          <li>{toc}</li>
+        </ol>
       <Divider/>
       <MDXRemote {...mdxSource} components={components}/>
     </div>

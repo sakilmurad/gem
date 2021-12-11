@@ -17,3 +17,10 @@ a {
 p, li{
   font-size: 1.2rem;
 }
+
+.anchor-link {
+  opacity: 0;
+}
+h2:hover .anchor-link {
+  opacity: 1;
+}
