@@ -5,8 +5,10 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import  ListItem  from '@mui/material/ListItem';
+import { useRouter } from "next/router";
 
 function Sidebar(props) {
+  const router = useRouter();
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const handleListItemClick = (event, index) => {
     if(props.handleDrawerToggle){
@@ -17,19 +19,15 @@ function Sidebar(props) {
 
   return (
     <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      <List component="nav" aria-label="main mailbox folders">
+      <ul className="sidebar-link">
       {props.data.map((post, index) => (
-         <ListItem
-         key={index}
-         selected={selectedIndex === index}
-         onClick={(event) => handleListItemClick(event, index)}
-       >
+         <li onClick={(event) => handleListItemClick(event, index)} className={router.asPath == `/${post.slug}` ? "active" : ""}>
          <Link href={post.slug} >
          {post.title} 
        </Link>
-       </ListItem>
+     </li>
       ))}
-      </List>
+      </ul>
     </Box>
   
   )

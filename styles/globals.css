@@ -24,3 +24,25 @@ p, li{
 h2:hover .anchor-link {
   opacity: 1;
 }
+.table-of-content li{
+  font-size: 1.1rem;
+}
+.sidebar-link{
+  list-style: none;
+  margin-left: -30px;
+}
+.sidebar-link li{
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 5px;
+}
+.sidebar-link li:hover{
+  color:rgb(56, 136, 228);
+  background-color: aliceblue;
+  
+}
+.sidebar-link .active{
+  color:rgb(56, 136, 228);
+  font-weight: 550;
+  background-color: aliceblue;
+}

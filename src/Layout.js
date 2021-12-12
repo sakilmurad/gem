@@ -17,23 +17,19 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Paper from '@mui/material/Paper';
 import Switch from './Switch';
 const Search = styled('div')(({ theme }) => ({
+    margin: "3px 3px",
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
-      width: 'auto',
-    },
+    width: '97%',
+    border: "1px solid rgb(211, 212, 212)"
   }));
   
   const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 1),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -50,9 +46,7 @@ const Search = styled('div')(({ theme }) => ({
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
       width: '100%',
-      [theme.breakpoints.up('md')]: {
-        width: '60ch',
-      },
+
     },
   }));
 
@@ -93,7 +87,6 @@ export default function Layout({data, isLoading, children}, props) {
       <Paper>
     <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-        {isLoading?<LinearProgress />:null}
         <Toolbar>
         <IconButton
             color="inherit"
@@ -108,21 +101,12 @@ export default function Layout({data, isLoading, children}, props) {
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            // sx={{ display: { xs: 'none', sm: 'block' } }}
           >
             <Link href="/">
            Murad
            </Link>
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
          <Switch  handle={HandleThemeChange}/>
         </Toolbar>
       </AppBar>
@@ -142,7 +126,15 @@ export default function Layout({data, isLoading, children}, props) {
         >
           <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
-        {/* {console.log(data)} */}
+        <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
         <Sidebar data={data} handleDrawerToggle = {handleDrawerToggle}/>
         </Box>
         </Drawer>
@@ -157,6 +149,15 @@ export default function Layout({data, isLoading, children}, props) {
       >
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
+        <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
         <Sidebar data={data}/>
         </Box>
       </Drawer>

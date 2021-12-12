@@ -8,10 +8,23 @@ const data = require("../src/data.json");
 import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }) {
-  const [isLoading, setLoading] = useState(false);
-  const router = useRouter()
+  const router = useRouter();
+  const ShowAdsense = () =>{
+    var ads = document.getElementsByClassName("adsbygoogle");
+    var adsLenght = ads.length;
+    for (var i = 0; i < adsLenght; i++) {
+      ads[i].innerHTML = "";
+    }
+    for (var i = 0; i < adsLenght; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) { }
+    }
+  }
+
   useEffect(() => {
     const handleRouteChange = (url) => {
+      ShowAdsense();
       ga.pageview(url)
     }
     //When the component is mounted, subscribe to router changes
@@ -26,31 +39,8 @@ function MyApp({ Component, pageProps }) {
   }, [router.events])
 
 
-  const ShowAdsense = () =>{
-    var ads = document.getElementsByClassName("adsbygoogle");
-    var adsLenght = ads.length;
-    for (var i = 0; i < adsLenght; i++) {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) { }
-    }
-  }
-
-Router.onRouteChangeStart = () => {
-  setLoading(true);
-};
-
-Router.onRouteChangeComplete = () => {
-  ShowAdsense();
-  setLoading(false);
-};
-
-Router.onRouteChangeError = () => {
-  setLoading(false);
-};
-
   return(<>
-    <Layout data={data} isLoading={isLoading}>
+    <Layout data={data}>
       <Component {...pageProps} />
     </Layout>
     </>

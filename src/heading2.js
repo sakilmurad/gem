@@ -27,8 +27,8 @@ function getAnchor(text) {
 
     const copylink = (link) =>{
       // let link = e.target.dataset.link;
-
-      navigator.clipboard.writeText(link);
+      const currentPageLink = window.location.href;
+      navigator.clipboard.writeText(`${currentPageLink}${link}`);
       setOpen(true);
     }
     return (
