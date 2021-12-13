@@ -8,47 +8,13 @@ import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
+
 import Sidebar from './Sidebar';
 import Link from 'next/link'
 import LinearProgress from '@mui/material/LinearProgress';
 import Paper from '@mui/material/Paper';
 import Switch from './Switch';
-const Search = styled('div')(({ theme }) => ({
-    margin: "3px 3px",
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: alpha(theme.palette.common.white, 0.25),
-    },
-    width: '97%',
-    border: "1px solid rgb(211, 212, 212)"
-  }));
-  
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 1),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }));
-  
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
 
-    },
-  }));
 
 const drawerWidth = 240;
 
@@ -126,15 +92,6 @@ export default function Layout({data, isLoading, children}, props) {
         >
           <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
-        <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
         <Sidebar data={data} handleDrawerToggle = {handleDrawerToggle}/>
         </Box>
         </Drawer>
@@ -149,15 +106,6 @@ export default function Layout({data, isLoading, children}, props) {
       >
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
-        <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
         <Sidebar data={data}/>
         </Box>
       </Drawer>

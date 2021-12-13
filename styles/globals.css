@@ -24,8 +24,12 @@ p, li{
 h2:hover .anchor-link {
   opacity: 1;
 }
+.anchor-link:hover{
+  color: rgb(8, 110, 199);
+}
 .table-of-content li{
-  font-size: 1.1rem;
+  font-size: 1rem;
+  list-style: none;
 }
 .sidebar-link{
   list-style: none;
@@ -35,6 +39,7 @@ h2:hover .anchor-link {
   font-size: 1rem;
   padding: 5px;
   border-radius: 5px;
+  display: block;
 }
 .sidebar-link li:hover{
   color:rgb(56, 136, 228);
@@ -45,4 +50,10 @@ h2:hover .anchor-link {
   color:rgb(56, 136, 228);
   font-weight: 550;
   background-color: aliceblue;
+}
+.sidebar-link li a{
+  display: block;
+}
+.accordation{
+  margin-top: -15px;
 }

@@ -16,8 +16,9 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Router from 'next/router';
 import { useRouter } from 'next/router'
+import addunit from "../src/adsense";
 
-const components = { Button, SyntaxHighlighter, h2: H2, h3: H2 }
+const components = { Button,addunit, SyntaxHighlighter, h2: H2, h3: H2 }
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -82,9 +83,10 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
             aria-controls="on-this-page"
             id="table-of-content"
           >
-            <span>On this page</span>
+            On this page
           </AccordionSummary>
-          <AccordionDetails>
+          <Divider/>
+          <AccordionDetails        className="accordation">
             <ul className="table-of-content">
               {toc.map((heading) => (
                 <li key={heading.id}>

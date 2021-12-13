@@ -11,7 +11,35 @@ import TabList from '@mui/lab/TabList';
 import Button from '@mui/material/Button';
 import LaunchIcon from '@mui/icons-material/Launch';
 import PictureAsPdfIcon from '@mui/icons-material/PictureAsPdf';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Router from 'next/router';
+import InsertLinkIcon from '@mui/icons-material/InsertLink';
+import Tooltip from '@mui/material/Tooltip';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+const getNestedHeadings = (headingElements) => {
+  const nestedHeadings = [];
+
+  headingElements.forEach((heading, index) => {
+    const { innerText: title, id } = heading;
+
+    if (heading.nodeName === "H2") {
+      nestedHeadings.push({ id, title, items: [] });
+    } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
+      nestedHeadings[nestedHeadings.length - 1].items.push({
+        id,
+        title,
+      });
+    }
+  });
+
+  return nestedHeadings;
+};
+
 
 const Home = ({ posts }) => {
   const [value, setValue] = React.useState("1");
@@ -19,8 +47,21 @@ const Home = ({ posts }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const [toc, setToc] = useState([]);
+
+  const generateTOC = () =>{
+    const headingElements = Array.from(
+      document.querySelectorAll("h2, h3")
+    );
+    const newNestedHeadings = getNestedHeadings(headingElements);
+    setToc(newNestedHeadings);
+  }
+  Router.onRouteChangeComplete = () => {
+    generateTOC();
+  };
   useEffect(() => {
-    
+    generateTOC();
     var ads = document.getElementsByClassName("adsbygoogle");
     var adsLenght = ads.length
     for (var i = 0; i < adsLenght; i++) {
@@ -32,6 +73,25 @@ const Home = ({ posts }) => {
       } catch (e) { }
     }
 }, []);
+
+const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+      setOpen(true);
+    };
+    const handleClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+  
+      setOpen(false);
+    };
+
+    const copylink = (link) =>{
+      const currentPageLink = `${window.location.origin}${window.location.pathname}`;
+      navigator.clipboard.writeText(`${currentPageLink}${link}`);
+      setOpen(true);
+    }
 
   return (
     <>
@@ -45,7 +105,43 @@ const Home = ({ posts }) => {
      data-ad-slot="1672653056"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
-      <Typography variant="h1">GeM - Government e-Marketplace</Typography>
+          <Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="on-this-page"
+            id="table-of-content"
+          >
+            On this page
+          </AccordionSummary>
+          <Divider/>
+          <AccordionDetails        className="accordation">
+            <ul className="table-of-content">
+              {toc.map((heading) => (
+                <li key={heading.id}>
+                  <a href={`#${heading.id}`}>{heading.title}</a>
+                  {
+                    heading.items.length > 0 ?
+                      <ul>
+                        {heading.items.map((child) => (
+                          <li key={child.id}>
+                            <a href={`#${child.id}`}>{child.title}</a>
+                          </li>
+                        )
+                        )}
+                      </ul> : null
+                  }
+                </li>
+              ))}
+            </ul>
+          </AccordionDetails>
+        </Accordion>
+        <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        message={`Section Link copied Successfully`}
+        onClose={handleClose}
+      />
+      <h1>GeM - Government e-Marketplace</h1>
       <Divider />
       <p>
         <b>GeM</b> is stand for <b>Government e-Marketplace</b>. The online portal for procurement of goods and services by government, created by Prime Minister.</p>
@@ -54,9 +150,23 @@ const Home = ({ posts }) => {
         has made the entry, &quot;32. Development, operation and maintenance of National Public Procurement Portal—Government e Marketplace&quot;.<br />
         The purchases through GeM by Government users have been authorised and made mandatory by Ministry of Finance by adding a new Rule No. 149 in the General Financial Rules, 2017.
       </p>
-      <h2>GeM Portal Vision</h2>
+      <h2 id="gem-portal-vision">
+      <span>GeM Portal Vision</span>
+        <Tooltip title={`Copy link to this section: GeM Portal Vision`}>
+      <IconButton onClick={() => copylink("#gem-portal-vision")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+      </h2>
       <p>To affect an evolution in public procurement promoting a transparent, efficient and inclusive marketplace.</p>
-      <h2>GeM Portal Mission</h2>
+      <h2 id="gem-portal-mission">
+      <span>GeM Portal Mission</span>
+        <Tooltip title={`Copy link to this section: GeM Portal Mission`}>
+      <IconButton onClick={() => copylink("#gem-portal-mission")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h2>
       <ul>
         <li>Institute a unified procurement policy to encourage behavorial change and drive reform.</li>
         <li>Establish a lean, dynamic organization capable of continuous innovation and market driven decision making.</li>
@@ -64,7 +174,14 @@ const Home = ({ posts }) => {
         <li>Demonstrate commitment to delivering value by ensuring right quality at right price</li>
         <li>Create a sustainable ecosystem covering all stakeholders and driving inclusive development in India</li>
       </ul>
-      <h2>GeM Portal Values</h2>
+      <h2 id="gem-portal-values">
+      <span>GeM Portal Values</span>
+        <Tooltip title={`Copy link to this section: GeM Portal Values`}>
+      <IconButton onClick={() => copylink("#gem-portal-values")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+      </h2>
       <ul>
         <li>Commitment</li>
         <li>Responsiveness</li>
@@ -74,7 +191,14 @@ const Home = ({ posts }) => {
         <li>Innovate to simplify</li>
         <li>Be Bold and Think Big</li>
       </ul>
-      <h2>GeM Advantages</h2>
+      <h2 id="gem-advantages">
+      <span>GeM Advantages</span>
+        <Tooltip title={`Copy link to this section: GeM Portal Values`}>
+      <IconButton onClick={() => copylink("#gem-advantages")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+      </h2>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
