@@ -57,11 +57,8 @@ const Home = ({ posts }) => {
     const newNestedHeadings = getNestedHeadings(headingElements);
     setToc(newNestedHeadings);
   }
-  Router.onRouteChangeComplete = () => {
-    generateTOC();
-  };
-  useEffect(() => {
-    generateTOC();
+
+  const ShowAds = () =>{
     var ads = document.getElementsByClassName("adsbygoogle");
     var adsLenght = ads.length
     for (var i = 0; i < adsLenght; i++) {
@@ -72,6 +69,15 @@ const Home = ({ posts }) => {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) { }
     }
+  }
+  Router.onRouteChangeComplete = () => {
+    generateTOC();
+    ShowAds();
+  };
+  useEffect(() => {
+    generateTOC();
+    ShowAds();
+   
 }, []);
 
 const [open, setOpen] = React.useState(false);
@@ -102,7 +108,7 @@ const [open, setOpen] = React.useState(false);
       <ins className="adsbygoogle"
     style={{display:"block"}}
      data-ad-client="ca-pub-1680355976010606"
-     data-ad-slot="1672653056"
+     data-ad-slot="6384632335"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
           <Accordion>
@@ -193,7 +199,7 @@ const [open, setOpen] = React.useState(false);
       </ul>
       <h2 id="gem-advantages">
       <span>GeM Advantages</span>
-        <Tooltip title={`Copy link to this section: GeM Portal Values`}>
+        <Tooltip title={`Copy link to this section: GeM Advantages`}>
       <IconButton onClick={() => copylink("#gem-advantages")} className="anchor-link">
         <InsertLinkIcon />
       </IconButton>
@@ -265,7 +271,105 @@ const [open, setOpen] = React.useState(false);
         </TabPanel>
       </TabContext>
       <a href="https://gem.gov.in/page/detail/26" target="_blank" rel="nofollow noreferrer"><Button variant="text">Source {<LaunchIcon />}</Button></a>
+            
+                  <h2 id="key-stackholders-of-gem">
+                  <span>Key Stackholders of GeM</span>
+        <Tooltip title={`Copy link to this section: key-stackholders-of-gem`}>
+      <IconButton onClick={() => copylink("#key-stackholders-of-gem")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip></h2>
+    <p>Here are some stackeholders of GeM.</p>
+    <h3 id="internal">
+    <span>Internal</span>
+        <Tooltip title={`Copy link to this section: Internal`}>
+      <IconButton onClick={() => copylink("#internal")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>MSP</li>
+      <li>GeM SPV</li>
+      <li>PMU</li>
+    </ul>
+    <h3 id="buyers">
+    <span>Buyers</span>
+        <Tooltip title={`Copy link to this section: Buyers`}>
+      <IconButton onClick={() => copylink("#buyers")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>Central Government</li>
+      <li>Central PSUs</li>
+      <li>State Government</li>
+      <li>State PSUs</li>
+      <li>Autonomous Bodies</li>
+    </ul>
 
+    <h3 id="sellers">
+    <span>Sellers</span>
+        <Tooltip title={`Copy link to this section: Sellers`}>
+      <IconButton onClick={() => copylink("#sellers")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>OEMs</li>
+      <li>MSE</li>
+      <li>Startup</li>
+      <li>Authorized Resellers</li>
+      <li>Service Providers</li>
+    </ul>
+
+    <h3 id="external-government">
+    <span>External Government</span>
+        <Tooltip title={`Copy link to this section: External Government`}>
+      <IconButton onClick={() => copylink("#external-government")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>UIDAI</li>
+      <li>GSTN</li>
+      <li>PFMS</li>
+      <li>MCA 21</li>
+      <li>PAN Database</li>
+    </ul>
+
+    <h3 id="inspection-system">
+    <span>Inspection System</span>
+        <Tooltip title={`Copy link to this section: Inspection System`}>
+      <IconButton onClick={() => copylink("#inspection-system")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>CAG</li>
+      <li>CVC</li>
+      <li>CGDA</li>
+      <li>RTI</li>
+    </ul>
+
+    <h3 id="partners">
+    <span>Partners</span>
+        <Tooltip title={`Copy link to this section: Partners`}>
+      <IconButton onClick={() => copylink("#partners")} className="anchor-link">
+        <InsertLinkIcon />
+      </IconButton>
+    </Tooltip>
+    </h3>
+    <ul>
+      <li>Banks</li>
+      <li>Rating Agencies</li>
+      <li>3PL</li>
+      <li>Other Commercial Agencies</li>
+    </ul>
     </>
   )
 }

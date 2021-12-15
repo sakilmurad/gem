@@ -2,7 +2,7 @@
   "name": "gem",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./src/GetAllPost.js && next dev",
     "CMD": "node ./src/GetAllPost.js",
     "build": "next build",
     "start": "next start",
