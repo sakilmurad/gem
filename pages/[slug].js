@@ -42,6 +42,8 @@ const getNestedHeadings = (headingElements) => {
 const showads = () =>{
   var ads = document.getElementsByClassName("adsbygoogle");
   var adsLenght = ads.length;
+    ads[0].innerHTML = "";
+  
   for (var i = 0; i < adsLenght; i++) {
     try {
       (adsbygoogle = window.adsbygoogle || []).push({});
