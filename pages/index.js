@@ -62,9 +62,6 @@ const Home = ({ posts }) => {
     var ads = document.getElementsByClassName("adsbygoogle");
     var adsLenght = ads.length
     for (var i = 0; i < adsLenght; i++) {
-      ads[i].innerHTML = "";
-    }
-    for (var i = 0; i < adsLenght; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) { }
