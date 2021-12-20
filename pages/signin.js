@@ -5,7 +5,7 @@ import { collection, addDoc } from "firebase/firestore";
 import Router from 'next/router';
 
 
-function signin() {
+function Signin() {
     const [userData, SetuserData] = useState([]);
 
     onAuthStateChanged(authorization, (user) => {
@@ -114,4 +114,4 @@ function signin() {
     )
 }
 
-export default signin
+export default Signin
