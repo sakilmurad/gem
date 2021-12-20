@@ -16,10 +16,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Router from 'next/router';
 import { useRouter } from 'next/router'
-import addunit from "../src/adsense";
 import Link from "next/link"
+import { authorization } from '../firebase/config'
+import { onAuthStateChanged } from '@firebase/auth'
 
-const components = { Button,addunit, Link, SyntaxHighlighter, h2: H2, h3: H2 }
+const components = { Button, Link, SyntaxHighlighter, h2: H2, h3: H2 }
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -39,17 +40,17 @@ const getNestedHeadings = (headingElements) => {
   return nestedHeadings;
 };
 
-const showads = () =>{
-  var ads = document.getElementsByClassName("adsbygoogle");
-  var adsLenght = ads.length;
-    ads[0].innerHTML = "";
-  
-  for (var i = 0; i < adsLenght; i++) {
-    try {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) { }
+
+onAuthStateChanged(authorization, (user) => {
+  if (user) {
+    const uid = user.uid;
+    console.log(uid);
+    // ...
+  } else {
+    Router.push("/signin");
   }
-}
+});
+
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   const [toc, setToc] = useState([]);
 
@@ -62,12 +63,9 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   }
   Router.onRouteChangeComplete = () => {
     generateTOC();
-    showads();
   };
   useEffect(() => {
     generateTOC();
-    showads();
-   
   }, []);
 
   return (
@@ -77,12 +75,6 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
         <meta name="description" content={description} />
       </Head>
       <div >
-        <ins className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client="ca-pub-1680355976010606"
-          data-ad-slot="6384632335"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}

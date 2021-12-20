@@ -41,7 +41,7 @@ const getNestedHeadings = (headingElements) => {
 };
 
 
-const Home = ({ posts }) => {
+const Home = () => {
   const [value, setValue] = React.useState("1");
 
   const handleChange = (event, newValue) => {
@@ -57,23 +57,12 @@ const Home = ({ posts }) => {
     const newNestedHeadings = getNestedHeadings(headingElements);
     setToc(newNestedHeadings);
   }
-
-  const ShowAds = () =>{
-    var ads = document.getElementsByClassName("adsbygoogle");
-    var adsLenght = ads.length
-    for (var i = 0; i < adsLenght; i++) {
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) { }
-    }
-  }
   Router.onRouteChangeComplete = () => {
     generateTOC();
-    ShowAds();
+ 
   };
   useEffect(() => {
     generateTOC();
-    ShowAds();
    
 }, []);
 
@@ -102,12 +91,6 @@ const [open, setOpen] = React.useState(false);
         <title>What is GeM - Government e-Marketplace</title>
         <meta name="description" content="Breifly explination about GeM - Government e-Marketplace" />
       </Head>
-      <ins className="adsbygoogle"
-    style={{display:"block"}}
-     data-ad-client="ca-pub-1680355976010606"
-     data-ad-slot="6384632335"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
           <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
