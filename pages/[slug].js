@@ -7,7 +7,6 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import Button from '@mui/material/Button';
 import Head from "next/head";
 import Divider from '@mui/material/Divider';
-import Typography from '@mui/material/Typography';
 import { useEffect, useState } from 'react'
 import H2 from "../src/heading2";
 import Accordion from '@mui/material/Accordion';
@@ -15,10 +14,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Router from 'next/router';
-import { useRouter } from 'next/router'
 import Link from "next/link"
-import { authorization } from '../firebase/config'
-import { onAuthStateChanged } from '@firebase/auth'
+import withAuth from '../src/withAuth'
 
 const components = { Button, Link, SyntaxHighlighter, h2: H2, h3: H2 }
 const getNestedHeadings = (headingElements) => {
@@ -40,19 +37,10 @@ const getNestedHeadings = (headingElements) => {
   return nestedHeadings;
 };
 
-
-onAuthStateChanged(authorization, (user) => {
-  if (user) {
-    const uid = user.uid;
-    console.log(uid);
-    // ...
-  } else {
-    Router.push("/signin");
-  }
-});
-
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   const [toc, setToc] = useState([]);
+
+ 
 
   const generateTOC = () =>{
     const headingElements = Array.from(
@@ -145,4 +133,4 @@ const getStaticProps = async ({ params: { slug } }) => {
 }
 
 export { getStaticProps, getStaticPaths }
-export default Post
+export default withAuth(Post)

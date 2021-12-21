@@ -4,11 +4,9 @@ import Drawer from '@mui/material/Drawer';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme, responsiveFontSizes } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import Sidebar from './Sidebar';
 import Link from 'next/link'
 import LinearProgress from '@mui/material/LinearProgress';
@@ -21,11 +19,13 @@ import { onAuthStateChanged } from '@firebase/auth'
 import Router from 'next/router';
 import { signOut } from '@firebase/auth';
 import Button from '@mui/material/Button';
+import Avatar from '@mui/material/Avatar';
 
 const drawerWidth = 240;
 
 export default function Layout({data, isLoading, children}, props) {
   const [isSigned, setIsSigned] = React.useState(false);
+  const [userData, setUserData] = React.useState([]);
   const [anchorElProfileMenu, setanchorElProfileMenu] = React.useState(null);
 
   const handleProfileMenu = (event) => {
@@ -39,6 +39,7 @@ export default function Layout({data, isLoading, children}, props) {
 
   onAuthStateChanged(authorization, (user) => {
     if (user) {
+      setUserData(user);
       setIsSigned(true);
       const uid = user.uid;
       console.log(uid);
@@ -86,8 +87,10 @@ export default function Layout({data, isLoading, children}, props) {
   return (
     <ThemeProvider theme={theme}>
       <Paper>
+    
     <CssBaseline />
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+    {isLoading && <LinearProgress />}
         <Toolbar>
         <Box display='flex' flexGrow={1}>
         <IconButton
@@ -115,7 +118,7 @@ export default function Layout({data, isLoading, children}, props) {
                 onClick={handleProfileMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                <Avatar alt={userData.displayName} src={userData.photoURL} />
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -141,6 +144,7 @@ export default function Layout({data, isLoading, children}, props) {
 <Switch  handle={HandleThemeChange}/>
         </Toolbar>
       </AppBar>
+      
       <Box sx={{ display: 'flex' }}>
       <Drawer
           container={container}

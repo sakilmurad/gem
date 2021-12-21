@@ -12,6 +12,9 @@ a {
 main a{
   color: blue;
 }
+main{
+  font-size: 14px;
+}
 
 * {
   box-sizing: border-box;
