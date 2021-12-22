@@ -132,5 +132,5 @@ const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 
-export { getStaticProps, getStaticPaths }
+export {getStaticProps, getStaticPaths};
 export default withAuth(Post)

@@ -91,6 +91,7 @@ const [open, setOpen] = React.useState(false);
         <title>What is GeM - Government e-Marketplace</title>
         <meta name="description" content="Breifly explination about GeM - Government e-Marketplace" />
       </Head>
+      <main>
           <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -350,6 +351,7 @@ const [open, setOpen] = React.useState(false);
       <li>3PL</li>
       <li>Other Commercial Agencies</li>
     </ul>
+    </main>
     </>
   )
 }

@@ -1,10 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Link from 'next/link'
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import  ListItem  from '@mui/material/ListItem';
 import { useRouter } from "next/router";
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
@@ -14,7 +10,7 @@ import Fuse from 'fuse.js';
 const postData = require("./data.json");
 
 const Search = styled('div')(({ theme }) => ({
-  margin: "3px 3px",
+  margin: "5px 3px",
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),

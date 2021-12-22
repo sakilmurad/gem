@@ -20,8 +20,20 @@ import Router from 'next/router';
 import { signOut } from '@firebase/auth';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
+import CloudOffIcon from '@mui/icons-material/CloudOff';
 
 const drawerWidth = 240;
+
+const errorIcon = () =>{
+  return(
+    <>
+    <div className="error-div-sidebar">
+    <CloudOffIcon sx={{fontSize:80}}/>
+    </div>
+    <p className="error-div-sidebar bottom-error">Please login first</p>
+    </>
+  )
+}
 
 export default function Layout({data, isLoading, children}, props) {
   const [isSigned, setIsSigned] = React.useState(false);
@@ -77,7 +89,7 @@ export default function Layout({data, isLoading, children}, props) {
       const Signout = () => {
         signOut(authorization).then(() => {
           setIsSigned(false);
-          Router.push("/signin")
+          Router.push("/login")
           handleProfileMenuClose();
         }).catch((error) => {
             // An error happened.
@@ -118,7 +130,7 @@ export default function Layout({data, isLoading, children}, props) {
                 onClick={handleProfileMenu}
                 color="inherit"
               >
-                <Avatar alt={userData.displayName} src={userData.photoURL} />
+                <Avatar alt={userData.displayName} src={userData.photoURL} sx={{ width: 35, height: 35 }}/>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -161,7 +173,8 @@ export default function Layout({data, isLoading, children}, props) {
         >
           <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
-        <Sidebar data={data} handleDrawerToggle = {handleDrawerToggle}/>
+          {isSigned?<Sidebar data={data} handleDrawerToggle = {handleDrawerToggle}/>:errorIcon()}
+        
         </Box>
         </Drawer>
       <Drawer
@@ -175,7 +188,7 @@ export default function Layout({data, isLoading, children}, props) {
       >
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
-        <Sidebar data={data}/>
+        {isSigned?<Sidebar data={data} />:errorIcon()}
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
