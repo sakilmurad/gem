@@ -134,7 +134,7 @@ function login() {
         <Grid container justifyContent="flex-end">
           <Grid item>
             <Link href="/signin" variant="body2">
-              haven't an account? Signup
+              haven&apos;t an account? Signup
             </Link>
           </Grid>
         </Grid>
