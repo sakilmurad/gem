@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { authorization, db } from '../firebase/config'
 import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, setDoc, doc  } from "firebase/firestore";
 import Router from 'next/router';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -16,26 +16,79 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import GoogleIcon from '@mui/icons-material/Google';
-import Divider  from '@mui/material/Divider';
+import LinearProgress from '@mui/material/LinearProgress';
+import Snackbar from '@mui/material/Snackbar';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+
+const insertData = async (displayName,email, uid)=>{
+  const data = {
+    displayName,
+    email
+};
+
+  try {
+    await setDoc(doc(db, "users", uid), data);
+  } catch (e) {
+    signOut(authorization)
+  }
+}
 
 function Signin() {
+
+  const [formLoading, setFormLoading] = React.useState(false);
+  const [MessageStatus, setMessageStatus] = React.useState();
+  const [open, setOpen] = React.useState(false);
+
   onAuthStateChanged(authorization, (user) => {
     if (user) {
       Router.push("/")
     }
   });
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+  setOpen(false);
+  };
+
+
   const SignupwithGoogle = () => {
+    setFormLoading(true);
     const provider = new GoogleAuthProvider();
     // signinwithgoogle 
     signInWithPopup(authorization, provider)
       .then((res) => {
-        SetuserData(res);
+        insertData(res.user.displayName, res.user.email, res.user.uid);
+        setFormLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        if(err.code == "auth/popup-blocked"){
+          setMessageStatus("Popup is blocked. Please enable to signin");
+        }else if(err.code == "auth/popup-closed-by-user"){
+          setMessageStatus("Popup is closed by you");
+        }else{
+          setMessageStatus("Unknown error, Please contact us");
+        }
+        setOpen(true);
+        setFormLoading(false);
       });
   }
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
 
   const googleSigninButton = () =>{
     return(
@@ -48,17 +101,52 @@ function Signin() {
   }
 
   const handleSubmit = (event) => {
+    setFormLoading(true);
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+    const Fname = data.get("firstName");
+    const Lname = data.get("lastName");
+
+    if(!Fname){
+      setMessageStatus("Please enter Firts Name");
+      setOpen(true);
+      setFormLoading(false);
+      return false;
+    }
+    if(!Lname){
+      setMessageStatus("Please enter Last Name");
+      setOpen(true);
+      setFormLoading(false);
+      return false;
+    }
+      const email = data.get('email');
+      const password = data.get('password');
+      
+    createUserWithEmailAndPassword(authorization, email, password)
+    .then((userCredential) => {
+      const displayName = `${Fname} ${Lname}`;
+      insertData(displayName, email, userCredential.user.uid);
+      setFormLoading(false);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      if(errorCode == "auth/invalid-email"){
+        setMessageStatus("Please enter a valid email id");
+      }else if(errorCode == "auth/weak-password"){
+        setMessageStatus("Your password is very weak");
+      }else if(errorCode == "auth/email-already-in-use"){
+        setMessageStatus("Email id alredy exist");
+      }else{
+        setMessageStatus("Unknown error, Please contact us");
+      }
+      setOpen(true);
+      setFormLoading(false);
     });
   };
 
   return (
     <Container component="main" maxWidth="xs">
+      {formLoading && <LinearProgress/>}
     <CssBaseline />
     <Box
       sx={{
@@ -73,13 +161,13 @@ function Signin() {
       <Typography component="h1" variant="h5">
         Sign up
       </Typography>
-      <Divider light/>
       <Box component="div" sx={{display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         padding: "2ch",
         marginTop: "2ch",
-        backgroundColor: "#F6F6F6",
+        border: "1px solid #1976d2",
+        // backgroundColor: "#F6F6F6",
         borderRadius: "2ch"}}>
       {googleSigninButton()}
       <p>OR</p>
@@ -127,12 +215,6 @@ function Signin() {
               autoComplete="new-password"
             />
           </Grid>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive inspiration, marketing promotions and updates via email."
-            />
-          </Grid>
         </Grid>
         <Button
           type="submit"
@@ -152,6 +234,13 @@ function Signin() {
       </Box>
     </Box>
     </Box>
+    <Snackbar
+        open={open}
+        autoHideDuration={4000}
+        onClose={handleClose}
+        message={MessageStatus}
+        action={action}
+      />
   </Container>
   )
 }

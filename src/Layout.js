@@ -22,6 +22,7 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
 
+
 const drawerWidth = 240;
 
 const errorIcon = () =>{
@@ -54,8 +55,6 @@ export default function Layout({data, isLoading, children}, props) {
       setUserData(user);
       setIsSigned(true);
       const uid = user.uid;
-      console.log(uid);
-      // ...
     }
   });
 
@@ -151,7 +150,7 @@ export default function Layout({data, isLoading, children}, props) {
                 <MenuItem onClick={Signout}>Logout</MenuItem>
               </Menu>
               </div>
-          ):<Link href="/signin"><Button variant="contained">Login</Button></Link>}
+          ):<Link href="/login"><Button variant="contained">Login</Button></Link>}
 
 <Switch  handle={HandleThemeChange}/>
         </Toolbar>
