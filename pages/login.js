@@ -32,7 +32,7 @@ const insertData = async (displayName,email, uid)=>{
 }
 
 
-function login() {
+function Login() {
 
   const [formLoading, setFormLoading] = React.useState(false);
   const [MessageStatus, setMessageStatus] = React.useState();
@@ -205,4 +205,4 @@ function login() {
   )
 }
 
-export default login
+export default Login
