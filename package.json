@@ -2,7 +2,7 @@
   "name": "gem",
   "private": true,
   "scripts": {
-    "dev": "node ./src/GetAllPost.js && next dev",
+    "dev": "node ./src/GetAllPost.js && node ./src/generateSitemap.js && next dev",
     "CMD": "node ./src/GetAllPost.js",
     "build": "next build",
     "start": "next start",
@@ -24,6 +24,7 @@
     "marked": "^4.0.6",
     "next": "12.0.4",
     "next-mdx-remote": "^3.0.8",
+    "next-sitemap": "^1.6.203",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-firebaseui": "^6.0.0",

@@ -10,7 +10,10 @@ class MyDocument extends Document {
       return (
         <Html  lang="en">
             <Head>
-            <meta name="robots" content="index, follow" />
+          </Head >
+          <body>
+            <Main />
+            <NextScript />
             <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=G-03XG9SMRE5`}
@@ -27,10 +30,6 @@ class MyDocument extends Document {
           `,
             }}
           />
-          </Head >
-          <body>
-            <Main />
-            <NextScript />
           </body>
         </Html>
       )

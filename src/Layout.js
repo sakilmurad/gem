@@ -21,7 +21,7 @@ import { signOut } from '@firebase/auth';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
-
+import Image from "next/image"
 
 const drawerWidth = 240;
 
@@ -113,11 +113,19 @@ export default function Layout({data, isLoading, children}, props) {
           >
             <MenuIcon />
           </IconButton>
-          <div className="logo">
             <Link href="/" >
-           Murad
+              <>
+            <Image
+      src="https://muftsabazaar.com/blog/image/fulllogo.svg"
+      alt="Logo"
+      width={200}
+      height={55}
+    />
+    <div className="logo-text">
+    GeM Portal Course
+    </div>
+    </>
            </Link>
-           </div>
           </Box>
          {isSigned? (
            <div>

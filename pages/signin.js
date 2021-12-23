@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { authorization, db } from '../firebase/config'
-import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { collection, addDoc, setDoc, doc  } from "firebase/firestore";
+import { GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, createUserWithEmailAndPassword } from "firebase/auth";
+import { setDoc, doc  } from "firebase/firestore";
 import Router from 'next/router';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from 'next/link';
 import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -20,6 +18,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Head from "next/head";
 
 const insertData = async (displayName,email, uid)=>{
   const data = {
@@ -146,6 +145,10 @@ function Signin() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <Head>
+            <meta name="robots" content="noindex" />
+            <title>Signin - GeM Portal Course</title>
+            </Head>
       {formLoading && <LinearProgress/>}
     <CssBaseline />
     <Box

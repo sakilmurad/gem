@@ -16,7 +16,8 @@ import LinearProgress from '@mui/material/LinearProgress';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
+import Head from "next/head"
 
 const insertData = async (displayName,email, uid)=>{
   const data = {
@@ -126,6 +127,10 @@ function Login() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <Head>
+            <meta name="robots" content="noindex" />
+            <title>Login - GeM Portal Course</title>
+            </Head>
       {formLoading && <LinearProgress />}
       <Box
         sx={{
@@ -184,6 +189,13 @@ function Login() {
             >
               Sign In
             </Button>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/forget" variant="body2">
+                  Forget Password?
+                </Link>
+              </Grid>
+            </Grid>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="/signin" variant="body2">
