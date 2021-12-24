@@ -23,9 +23,15 @@ p, li{
   font-size: 1.2rem;
 }
 
+.header-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo-text{
-  font-size: 1.3rem;
-  margin-top: 25px;
+  font-size: 1.4rem;
+  /* margin-bottom: -20px; */
   margin-left: 5px;
 }
 
