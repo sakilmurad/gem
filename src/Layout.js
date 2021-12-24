@@ -22,8 +22,9 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
 import Image from "next/image"
+import Container from '@mui/material/Container';
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const errorIcon = () => {
   return (
@@ -77,7 +78,16 @@ export default function Layout({ data, isLoading, children }, props) {
         fontSize: "3rem",
         fontWeight: 550,
       },
-    }
+    },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 1000,
+        md: 1100,
+        lg: 1300,
+        xl: 1536,
+      },
+    },
   });
   theme = responsiveFontSizes(theme);
 
@@ -97,8 +107,6 @@ export default function Layout({ data, isLoading, children }, props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper>
-
         <CssBaseline />
         <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           {isLoading && <LinearProgress />}
@@ -180,7 +188,7 @@ export default function Layout({ data, isLoading, children }, props) {
           >
             <Toolbar />
             <Box sx={{ overflow: 'auto' }}>
-              {isSigned ? <Sidebar data={data} handleDrawerToggle={handleDrawerToggle} /> : errorIcon()}
+           <Sidebar data={data} handleDrawerToggle={handleDrawerToggle} />
 
             </Box>
           </Drawer>
@@ -195,7 +203,7 @@ export default function Layout({ data, isLoading, children }, props) {
           >
             <Toolbar />
             <Box sx={{ overflow: 'auto' }}>
-              {isSigned ? <Sidebar data={data} /> : errorIcon()}
+            <Sidebar data={data} />
             </Box>
           </Drawer>
           <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
@@ -203,7 +211,6 @@ export default function Layout({ data, isLoading, children }, props) {
             {children}
           </Box>
         </Box>
-      </Paper>
     </ThemeProvider>
   );
 }

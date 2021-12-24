@@ -13,14 +13,11 @@ main a{
   color: rgb(113, 113, 230);
 }
 main{
-  font-size: 14px;
+  font-size: 15px;
 }
 
 * {
   box-sizing: border-box;
-}
-p, li{
-  font-size: 1.2rem;
 }
 
 .header-logo{
@@ -45,11 +42,15 @@ h2:hover .anchor-link, h3:hover .anchor-link {
   color: rgb(8, 110, 199);
 }
 .table-of-content li{
-  font-size: 1rem;
+  font-size: 0.8rem;
   list-style: none;
 }
-.table-of-content li a{
-  color: inherit;
+.table-of-content ul{
+  margin-left: -38px;
+  margin-top: 0px;
+}
+.table-of-content ul .submenu{
+  margin-left: -30px;
 }
 .sidebar-link{
   list-style: none;
@@ -88,4 +89,12 @@ h2, h3{
 }
 .bottom-error{
   margin-top: -5px;
+}
+
+.content-paper{
+  padding: 10px;
+
+}
+.table-of-contact-wrapper{
+  position: absolute;
 }

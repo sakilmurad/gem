@@ -9,15 +9,13 @@ import Head from "next/head";
 import Divider from '@mui/material/Divider';
 import { useEffect, useState } from 'react'
 import H2 from "../src/heading2";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import H3 from "../src/heading3";
 import Router from 'next/router';
 import Link from "next/link"
-import withAuth from '../src/withAuth'
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
-const components = { Button, Link, SyntaxHighlighter, h2: H2, h3: H2 }
+const components = { Button, Link, SyntaxHighlighter, h2: H2, h3: H3 }
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -40,9 +38,9 @@ const getNestedHeadings = (headingElements) => {
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   const [toc, setToc] = useState([]);
 
- 
 
-  const generateTOC = () =>{
+
+  const generateTOC = () => {
     const headingElements = Array.from(
       document.querySelectorAll("h2, h3")
     );
@@ -63,39 +61,47 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
         <meta name="description" content={description} />
       </Head>
       <div >
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="on-this-page"
-            id="table-of-content"
-          >
-            On this page
-          </AccordionSummary>
-          <Divider/>
-          <AccordionDetails        className="accordation">
-            <ul className="table-of-content">
-              {toc.map((heading) => (
-                <li key={heading.id}>
-                  <a href={`#${heading.id}`}>{heading.title}</a>
-                  {
-                    heading.items.length > 0 ?
-                      <ul>
-                        {heading.items.map((child) => (
-                          <li key={child.id}>
-                            <a href={`#${child.id}`}>{child.title}</a>
-                          </li>
-                        )
-                        )}
-                      </ul> : null
-                  }
-                </li>
-              ))}
-            </ul>
-          </AccordionDetails>
-        </Accordion>
         <h1>{title}</h1>
         <Divider />
-        <MDXRemote {...mdxSource} components={components} />
+        <Grid container spacing={2}
+          direction="row-reverse"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          className="main-content"
+        >
+          <Grid item xs={12} sm={2}>
+            <Grid sx={{position: {sm: "absolute"} }}>
+            <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' } }}>
+              <div className="table-of-content">
+                <b>On this page</b>
+                <ul>
+                  {toc.map((heading) => (
+                    <li key={heading.id}>
+                      <a href={`#${heading.id}`}>{heading.title}</a>
+                      {
+                        heading.items.length > 0 ?
+                          <ul className="submenu">
+                            {heading.items.map((child) => (
+                              <li key={child.id}>
+                                <a href={`#${child.id}`}>{child.title}</a>
+                              </li>
+                            )
+                            )}
+                          </ul> : null
+                      }
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Paper>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} sm={10}>
+            <Paper elevation={3} className="content-paper">
+              <MDXRemote {...mdxSource} components={components} />
+            </Paper>
+          </Grid>
+        </Grid>
       </div>
     </>
   )
@@ -132,5 +138,5 @@ const getStaticProps = async ({ params: { slug } }) => {
   }
 }
 
-export {getStaticProps, getStaticPaths};
-export default withAuth(Post)
+export { getStaticProps, getStaticPaths };
+export default Post
