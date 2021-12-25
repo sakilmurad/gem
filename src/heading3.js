@@ -44,7 +44,7 @@ function getAnchor(text) {
       <Snackbar
         open={open}
         autoHideDuration={3000}
-        message={`Copied ${children}`}
+        message={`Copied: ${children}`}
         onClose={handleClose}
       />
       </>

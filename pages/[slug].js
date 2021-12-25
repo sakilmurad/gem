@@ -1,3 +1,4 @@
+import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import fs from 'fs'
@@ -37,9 +38,6 @@ const getNestedHeadings = (headingElements) => {
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   const [toc, setToc] = useState([]);
-
-
-
   const generateTOC = () => {
     const headingElements = Array.from(
       document.querySelectorAll("h2, h3")
@@ -72,32 +70,32 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
           <Grid item xs={12} sm={2}>
             <Grid sx={{position: {sm: "absolute"} }}>
             <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' } }}>
-              <div className="table-of-content">
-                <b>On this page</b>
-                <ul>
-                  {toc.map((heading) => (
-                    <li key={heading.id}>
-                      <a href={`#${heading.id}`}>{heading.title}</a>
-                      {
-                        heading.items.length > 0 ?
-                          <ul className="submenu">
-                            {heading.items.map((child) => (
-                              <li key={child.id}>
-                                <a href={`#${child.id}`}>{child.title}</a>
-                              </li>
-                            )
-                            )}
-                          </ul> : null
-                      }
+    <div className="table-of-content">
+      <b>On this page</b>
+      <ul>
+        {toc.map((heading) => (
+          <li key={heading.id}>
+            <a href={`#${heading.id}`}>{heading.title}</a>
+            {
+              heading.items.length > 0 ?
+                <ul className="submenu">
+                  {heading.items.map((child) => (
+                    <li key={child.id}>
+                      <a href={`#${child.id}`}>{child.title}</a>
                     </li>
-                  ))}
-                </ul>
-              </div>
-            </Paper>
+                  )
+                  )}
+                </ul> : null
+            }
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Paper>
             </Grid>
           </Grid>
           <Grid item xs={12} sm={10}>
-            <Paper elevation={3} className="content-paper">
+            <Paper elevation={3} sx={{p:"10px"}}>
               <MDXRemote {...mdxSource} components={components} />
             </Paper>
           </Grid>

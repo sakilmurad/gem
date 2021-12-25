@@ -22,8 +22,11 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
 import Image from "next/image"
-import Container from '@mui/material/Container';
-
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import Tooltip from '@mui/material/Tooltip';
+import Snackbar from '@mui/material/Snackbar';
+import Typography from '@mui/material/Typography';
 const drawerWidth = 200;
 
 const errorIcon = () => {
@@ -41,7 +44,19 @@ export default function Layout({ data, isLoading, children }, props) {
   const [isSigned, setIsSigned] = React.useState(false);
   const [userData, setUserData] = React.useState([]);
   const [anchorElProfileMenu, setanchorElProfileMenu] = React.useState(null);
+  const [opensnackbar, setOpenSnakbar] = React.useState(false);
 
+  const handleClickofSnakbar = () => {
+    setOpenSnakbar(true);
+  };
+
+  const handleClosesnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnakbar(false);
+  };
   const handleProfileMenu = (event) => {
     setanchorElProfileMenu(event.currentTarget);
   };
@@ -105,24 +120,29 @@ export default function Layout({ data, isLoading, children }, props) {
     });
   }
 
+  const feedback = () => {
+    setOpenSnakbar(true);
+
+  }
+
   return (
     <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-          {isLoading && <LinearProgress />}
-          <Toolbar>
-            <Box display='flex' flexGrow={1}>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Link href="/" >
-                <a className="header-logo" >
+      <CssBaseline />
+      <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        {isLoading && <LinearProgress />}
+        <Toolbar>
+          <Box display='flex' flexGrow={1}>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Link href="/" >
+              <a className="header-logo" >
                 <Image
                   src="https://res.cloudinary.com/dl3tfsbn5/image/upload/ar_1:1,b_rgb:1976d2,bo_0px_solid_rgb:ff0000,c_fill,g_auto,h_93,r_max,w_99/v1640360177/fullogo.png"
                   alt="Logo"
@@ -130,87 +150,106 @@ export default function Layout({ data, isLoading, children }, props) {
                   height={35}
                 />
                 <span className="logo-text">
-                GeM Portal Course
+                  <Typography variant="h6" gutterBottom component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>GeM Portal Course</Typography>
+                  <Typography variant="h6" gutterBottom component="div" sx={{ display: { xs: 'block', sm: 'none' } }}>GPC</Typography>
                 </span>
-                </a>
-                 </Link>
-            </Box>
-            {isSigned ? (
-              <div>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleProfileMenu}
-                  color="inherit"
-                >
-                  <Avatar alt={userData.displayName} src={userData.photoURL} sx={{ width: 35, height: 35 }} />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorElProfileMenu}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorElProfileMenu)}
-                  onClose={handleProfileMenuClose}
-                >
-                  <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
-                  <MenuItem onClick={Signout}>Logout</MenuItem>
-                </Menu>
-              </div>
-            ) : <Link href="/login"><Button variant="contained">Login</Button></Link>}
-
-            <Switch handle={HandleThemeChange} />
-          </Toolbar>
-        </AppBar>
-
-        <Box sx={{ display: 'flex' }}>
-          <Drawer
-            container={container}
-            variant="temporary"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-            sx={{
-              display: { xs: 'block', sm: 'none' },
-              '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-            }}
-          >
-            <Toolbar />
-            <Box sx={{ overflow: 'auto' }}>
-           <Sidebar data={data} handleDrawerToggle={handleDrawerToggle} />
-
-            </Box>
-          </Drawer>
-          <Drawer
-            variant="permanent"
-            sx={{
-              display: { xs: 'none', sm: 'block' },
-              width: drawerWidth,
-              flexShrink: 0,
-              [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
-            }}
-          >
-            <Toolbar />
-            <Box sx={{ overflow: 'auto' }}>
-            <Sidebar data={data} />
-            </Box>
-          </Drawer>
-          <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-            <Toolbar />
-            {children}
+              </a>
+            </Link>
           </Box>
+          {isSigned ? (
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleProfileMenu}
+                color="inherit"
+              >
+                <Avatar alt={userData.displayName} src={userData.photoURL} sx={{ width: 35, height: 35 }} />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElProfileMenu}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorElProfileMenu)}
+                onClose={handleProfileMenuClose}
+              >
+                <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
+                <MenuItem onClick={Signout}>Logout</MenuItem>
+              </Menu>
+            </div>
+          ) : <Link href="/login"><Button variant="contained">Login</Button></Link>}
+
+          <Switch handle={HandleThemeChange} />
+        </Toolbar>
+      </AppBar>
+
+      <Box sx={{ display: 'flex' }}>
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: 'auto' }}>
+            <Sidebar data={data} handleDrawerToggle={handleDrawerToggle} />
+
+          </Box>
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', sm: 'block' },
+            width: drawerWidth,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: 'auto' }}>
+            <Sidebar data={data} />
+          </Box>
+        </Drawer>
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          {children}
+          Was this helpful:
+          <Tooltip title="Helpful">
+            <IconButton onClick={feedback}>
+              <ThumbUpIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Not helpful">
+            <IconButton onClick={feedback}>
+              <ThumbDownIcon />
+            </IconButton>
+          </Tooltip>
         </Box>
+      </Box>
+      <Snackbar
+        open={opensnackbar}
+        autoHideDuration={4000}
+        onClose={handleClosesnackbar}
+        message="Thanks for your Feedback"
+      />
+      <div className='footer'>&copy; 2021, GeM Portal Course and their respective content owners.</div>
     </ThemeProvider>
   );
 }

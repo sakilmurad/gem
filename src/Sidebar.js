@@ -6,7 +6,6 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import Fuse from 'fuse.js';
-
 const postData = require("./data.json");
 
 const Search = styled('div')(({ theme }) => ({
@@ -45,7 +44,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 function Sidebar(props) {
   const router = useRouter();
-  const [menuData, setMenuData]  = useState([]);
+  const [menuData, setMenuData]  = useState(postData);
   const handleListItemClick = (event, index) => {
     if(props.handleDrawerToggle){
       props.handleDrawerToggle();

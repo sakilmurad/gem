@@ -2,7 +2,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-
 }
 
 a {
@@ -80,6 +79,7 @@ h2:hover .anchor-link, h3:hover .anchor-link {
 }
 h2, h3{
   margin-bottom: -10px;
+  scroll-margin-top: 60px;
 }
 
 .error-div-sidebar{
@@ -90,11 +90,7 @@ h2, h3{
 .bottom-error{
   margin-top: -5px;
 }
-
-.content-paper{
-  padding: 10px;
-
-}
-.table-of-contact-wrapper{
-  position: absolute;
+.footer{
+  margin-bottom: 10px;
+  text-align: center;
 }
