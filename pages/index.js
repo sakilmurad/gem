@@ -90,8 +90,6 @@ const Home = () => {
         <title>What is GeM - Government e-Marketplace</title>
         <meta name="description" content="Breifly explination about GeM - Government e-Marketplace" />
       </Head>
-      <h1>GeM - Government e-Marketplace</h1>
-        <Divider />
       <Grid container spacing={2}
         direction="row-reverse"
         justifyContent="flex-start"
@@ -133,6 +131,8 @@ const Home = () => {
         />
         <Grid item xs={12} sm={10}>
           <Paper elevation={3} sx={{ p: "20px" }}>
+          <h1>GeM - Government e-Marketplace</h1>
+        <Divider />
             <p>
               <b>GeM</b> is stand for <b>Government e-Marketplace</b>. The online portal for procurement of goods and services by government, created by Prime Minister.</p>
             <p>
