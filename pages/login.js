@@ -33,6 +33,7 @@ const insertData = async (displayName,email, uid)=>{
 }
 
 
+
 function Login() {
 
   const [formLoading, setFormLoading] = React.useState(false);
@@ -52,7 +53,6 @@ function Login() {
       Router.push("/")
     }
   });
-
 
 
   const SignupwithGoogle = async () => {

@@ -70,9 +70,6 @@ const Home = () => {
 
   const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -135,7 +132,7 @@ const Home = () => {
           onClose={handleClose}
         />
         <Grid item xs={12} sm={10}>
-          <Paper elevation={3} sx={{ p: "10px" }}>
+          <Paper elevation={3} sx={{ p: "20px" }}>
             <p>
               <b>GeM</b> is stand for <b>Government e-Marketplace</b>. The online portal for procurement of goods and services by government, created by Prime Minister.</p>
             <p>

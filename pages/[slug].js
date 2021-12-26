@@ -15,6 +15,11 @@ import Router from 'next/router';
 import Link from "next/link"
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
 
 const components = { Button, Link, SyntaxHighlighter, h2: H2, h3: H3 }
 const getNestedHeadings = (headingElements) => {
@@ -38,6 +43,22 @@ const getNestedHeadings = (headingElements) => {
 
 const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   const [toc, setToc] = useState([]);
+
+  const [opensnackbar, setOpenSnakbar] = React.useState(false);
+
+  const handleClosesnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnakbar(false);
+  };
+
+  const feedback = () => {
+    setOpenSnakbar(true);
+
+  }
+
   const generateTOC = () => {
     const headingElements = Array.from(
       document.querySelectorAll("h2, h3")
@@ -59,8 +80,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
         <meta name="description" content={description} />
       </Head>
       <div >
-        <h1>{title}</h1>
-        <Divider />
+       
         <Grid container spacing={2}
           direction="row-reverse"
           justifyContent="flex-start"
@@ -69,7 +89,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
         >
           <Grid item xs={12} sm={2}>
             <Grid sx={{position: {sm: "absolute"} }}>
-            <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' } }}>
+            <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' }, top: "90px" }}>
     <div className="table-of-content">
       <b>On this page</b>
       <ul>
@@ -95,11 +115,30 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
             </Grid>
           </Grid>
           <Grid item xs={12} sm={10}>
-            <Paper elevation={3} sx={{p:"10px"}}>
+            <Paper elevation={3} sx={{p:"20px"}}>
+            <h1>{title}</h1>
+        <Divider />
               <MDXRemote {...mdxSource} components={components} />
+            Was this helpful:
+          <Tooltip title="Helpful">
+            <IconButton onClick={feedback}>
+              <ThumbUpIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip title="Not helpful">
+            <IconButton onClick={feedback}>
+              <ThumbDownIcon />
+            </IconButton>
+          </Tooltip>
             </Paper>
-          </Grid>
+          </Grid> 
         </Grid>
+        <Snackbar
+        open={opensnackbar}
+        autoHideDuration={4000}
+        onClose={handleClosesnackbar}
+        message="Thanks for your Feedback"
+      />
       </div>
     </>
   )

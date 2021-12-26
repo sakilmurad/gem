@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Nunito', sans-serif;
 }
 
 a {
@@ -91,6 +93,15 @@ h2, h3{
   margin-top: -5px;
 }
 .footer{
-  margin-bottom: 10px;
   text-align: center;
+  margin-top: 5px;
+}
+.copyright-notice{
+  margin: 10px 0px;
+}
+.footer-links{
+  text-align: center;
+}
+.footer-links a{
+  margin: 5px;
 }

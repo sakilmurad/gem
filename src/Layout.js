@@ -22,11 +22,8 @@ import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import CloudOffIcon from '@mui/icons-material/CloudOff';
 import Image from "next/image"
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
-import Tooltip from '@mui/material/Tooltip';
-import Snackbar from '@mui/material/Snackbar';
 import Typography from '@mui/material/Typography';
+
 const drawerWidth = 200;
 
 const errorIcon = () => {
@@ -44,19 +41,7 @@ export default function Layout({ data, isLoading, children }, props) {
   const [isSigned, setIsSigned] = React.useState(false);
   const [userData, setUserData] = React.useState([]);
   const [anchorElProfileMenu, setanchorElProfileMenu] = React.useState(null);
-  const [opensnackbar, setOpenSnakbar] = React.useState(false);
 
-  const handleClickofSnakbar = () => {
-    setOpenSnakbar(true);
-  };
-
-  const handleClosesnackbar = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpenSnakbar(false);
-  };
   const handleProfileMenu = (event) => {
     setanchorElProfileMenu(event.currentTarget);
   };
@@ -89,6 +74,7 @@ export default function Layout({ data, isLoading, children }, props) {
       mode: dark ? 'dark' : 'light',
     },
     typography: {
+      
       h1: {
         fontSize: "3rem",
         fontWeight: 550,
@@ -118,11 +104,6 @@ export default function Layout({ data, isLoading, children }, props) {
     }).catch((error) => {
       // An error happened.
     });
-  }
-
-  const feedback = () => {
-    setOpenSnakbar(true);
-
   }
 
   return (
@@ -183,7 +164,7 @@ export default function Layout({ data, isLoading, children }, props) {
                 open={Boolean(anchorElProfileMenu)}
                 onClose={handleProfileMenuClose}
               >
-                <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem>
+                {/* <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem> */}
                 <MenuItem onClick={Signout}>Logout</MenuItem>
               </Menu>
             </div>
@@ -230,26 +211,16 @@ export default function Layout({ data, isLoading, children }, props) {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
           {children}
-          Was this helpful:
-          <Tooltip title="Helpful">
-            <IconButton onClick={feedback}>
-              <ThumbUpIcon />
-            </IconButton>
-          </Tooltip>
-          <Tooltip title="Not helpful">
-            <IconButton onClick={feedback}>
-              <ThumbDownIcon />
-            </IconButton>
-          </Tooltip>
+          <div className='copyright-notice'>
+        Copyright Notic: We hereby declare that we are not the full owner of the content. We also declare that we use other creator's content for fair and teaching purpose only.
+        </div>
+        <div className='footer-links'>
+          <Link href="/about-us">About us</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+      <div className='footer'>&copy; 2021, GeM Portal Course and the respective content owners.</div>
         </Box>
       </Box>
-      <Snackbar
-        open={opensnackbar}
-        autoHideDuration={4000}
-        onClose={handleClosesnackbar}
-        message="Thanks for your Feedback"
-      />
-      <div className='footer'>&copy; 2021, GeM Portal Course and their respective content owners.</div>
     </ThemeProvider>
   );
 }
