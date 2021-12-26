@@ -100,7 +100,7 @@ const Home = () => {
       >
         <Grid item xs={12} sm={2}>
           <Grid sx={{ position: { sm: "absolute" } }}>
-            <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' } }}>
+            <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' }, top: "90px" }}>
               <div className="table-of-content">
                 <b>On this page</b>
                 <ul>

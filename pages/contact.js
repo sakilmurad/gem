@@ -48,7 +48,7 @@ function Contact() {
         const data = new FormData(event.currentTarget);
         const name = data.get('name');
         const email = data.get('email');
-        const phone = data.get('phone');
+        const phone = data.get('number');
         const message = data.get('message');
         if(!name || !email||!message ){
             setMessageStatus("Please fill out all field");
