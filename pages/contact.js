@@ -42,6 +42,21 @@ function Contact() {
       setOpen(false);
     };
 
+    const SendMail = (body)=>{
+      fetch("/api/contact",{
+        method: "POST",
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: body
+      })
+      .then(res=>{
+      })
+      .catch(err=>{
+      })
+    }
+
     const handleSubmit = (event) =>{
         setFormLoading(true);
         event.preventDefault();
@@ -50,6 +65,7 @@ function Contact() {
         const email = data.get('email');
         const phone = data.get('number');
         const message = data.get('message');
+        const jsonData = JSON.stringify({name,email,phone,message});
         if(!name || !email||!message ){
             setMessageStatus("Please fill out all field");
             setOpen(true);
@@ -57,6 +73,7 @@ function Contact() {
             return
         }
        if(insertData(name,email,phone,message)){
+         SendMail(jsonData);
         setMessageStatus("Thanks for contact us");
         setOpen(true);
         setFormLoading(false);
