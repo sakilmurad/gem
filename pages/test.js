@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Test() {
-    const data = process.env.NEXT_PUBLIC_TEST
+    const data = process.env.TEST
     return (
         <div>
             {data}
