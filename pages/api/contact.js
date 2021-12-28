@@ -186,6 +186,18 @@ table.body .article {
     subject: `Thanks for contact on GeM Portal Course`,
     html: EmailBody,
   };
+
+  const mailOptionAdmin = {
+    from: `GeM Portal Course<${email}>`,
+    to: `${adminEmail}`,
+    subject: `New contact message from ${req.body.name}`,
+    text: `
+    Name: ${req.body.name},
+    Email: ${req.body.email},
+    Phone No: ${req.body.phone},
+    Message: ${req.body.message}
+    `,
+  }
 transporter.sendMail(mailOption, (err, data) => {
     if (err) {
       console.log(err);
@@ -193,5 +205,12 @@ transporter.sendMail(mailOption, (err, data) => {
       console.log("mail send");
     }
   });
+  transporter.sendMail(mailOptionAdmin, (err,data)=>{
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("mail send");
+    }
+  })
   res.send("success");
 };
