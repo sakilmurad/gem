@@ -89,7 +89,7 @@ const [searchparam, setSearchparam] = useState("invoice");
       {
       
       menuData.map((post, index) => (
-         <li key={index} onClick={(event) => handleListItemClick(event, index)} className={router.asPath == `/${post.slug}` ? "active" : ""}>
+         <li key={index} onClick={(event) => handleListItemClick(event, index)} className={router.asPath == `${post.slug}` ? "active" : ""}>
          <Link href={post.slug == undefined?post.item.slug:post.slug} className="sidebar-anchor">
          {post.title== undefined?post.item.title:post.title} 
        </Link>

@@ -10,13 +10,15 @@ class MyDocument extends Document {
       return (
         <Html  lang="en">
             <Head>
+            <link rel="shortcut icon" href="/favicon.ico" />
+            <meta name="theme-color" content="#1976d2"/>
           </Head >
           <body>
             <Main />
             <NextScript />
             <script
             async
-            src={`https://www.googletagmanager.com/gtag/js?id=G-03XG9SMRE5`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALYTICS_ID}`}
           />
           <script
             dangerouslySetInnerHTML={{
@@ -24,7 +26,7 @@ class MyDocument extends Document {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-03XG9SMRE5', {
+            gtag('config', '${process.env.NEXT_PUBLIC_ANALYTICS_ID}', {
               page_path: window.location.pathname,
             });
           `,

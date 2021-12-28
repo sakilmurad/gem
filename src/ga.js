@@ -1,8 +1,9 @@
 // log the pageview with their URL
 export const pageview = (url) => {
-    window.gtag('config', "G-03XG9SMRE5", {
+    window.gtag('config', `${process.env.NEXT_PUBLIC_ANALYTICS_ID}`, {
       page_path: url,
     })
+
   }
   
   // log specific events happening.
