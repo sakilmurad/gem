@@ -52,8 +52,10 @@ function Contact() {
         body: body
       })
       .then(res=>{
+        console.log("mail sent successfully");
       })
       .catch(err=>{
+        console.log(err);
       })
     }
 
