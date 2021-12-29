@@ -3,7 +3,8 @@ import React from 'react'
 function About() {
     return (
         <div>
-            this is about us page
+            We are not any official GeM partners. We only provide data as per our research and knowledge. Please be aware with your GeM account.
+            Don't give your credentials to anybody. Be safe and support our work if you like.
         </div>
     )
 }
