@@ -215,6 +215,7 @@ export default function Layout({ data, isLoading, children }, props) {
         Copyright Notic: We hereby declare that we are not the full owner of the content. We also declare that we use other creator's content for fair and teaching purpose only.
         </div>
         <div className='footer-links'>
+          <Link href="/make-in-india">MII Certificate Generator</Link>
           <Link href="/about-us">About us</Link>
           <Link href="/contact">Contact</Link>
         </div>
