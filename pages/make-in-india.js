@@ -1,10 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState, useRef } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
 import Head from "next/head";
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
+import ReactToPrint from 'react-to-print';
+import PrintIcon from '@mui/icons-material/Print';
+import Button from "@mui/material/Button"
+import Slider from '@mui/material/Slider';
 
 function MII() {
     const [companyName, setCompanyName] = useState("ABC Pvt Ltd");
@@ -12,6 +15,7 @@ function MII() {
     const [bidNumber, setBidNumber] = useState("GEM/2022/B/XXXXXX");
     const [bidDate, setBidDate] = useState("31-12-2021");
     const [address, setAddress] = useState("XYZ, New Delhi - 110041");
+    const [margingTop, setMarginTop] = useState(0);
 
     const handleChange = (e) =>{
         const Id = e.target.id;
@@ -34,10 +38,12 @@ function MII() {
                 return;
 
         }
-       
-
-
     }
+
+    const handleChanegMargin = (e)=>{
+      const value = e.target.value;
+      setMarginTop(value);
+    }    
 
     return (
         <div>
@@ -96,21 +102,33 @@ function MII() {
                     />
                     </Grid>
               </Grid>
-
+              <Box width={200} sx={{m:2}}>
+                Margin from top
+      <Slider defaultValue={0} aria-label="Default" onChange={handleChanegMargin} valueLabelDisplay="auto" max={30}/>
+      </Box>
+              <ReactToPrint
+        trigger={() => <Button variant="contained" sx={{m:2}} startIcon={<PrintIcon />}>
+        Print
+      </Button>}
+        content={() => componentRef.current}
+      />
               <Box
+              ref={componentRef} 
       sx={{
         display: 'flex',
         flexWrap: 'wrap',
         '& > :not(style)': {
-          m: 3,
-          p:2,
-          maxwidth: "793px",
+          m: 2,
+          p:3,
+          maxwidth: "500px",
           maxheight: "1122px",
         },
       }}
+      id="generated-content"
     >
-      <Paper elevation={3}>
-      <Typography sx={{ textAlign:"center" }}  variant="h5" component="div">
+      <Box>
+      
+      <Typography sx={{ textAlign:"center", pt:margingTop }}  variant="h5" component="div">
         <u>Self-Certification under preference to Make in India order</u>
         </Typography>
         <Typography sx={{ textAlign:"center" }}>
@@ -121,8 +139,7 @@ function MII() {
         </Typography>
         <Typography variant="body2" sx={{fontSize: 18,}}>
         In line with Government Public Procurement Order No. P-45021/2/2017-PP
-(BE-II) dated 04.06.2020 and its amendments, we hereby certify that we M/s {companyName}
-are local supplier meeting the requirement of
+(BE-II) dated 04.06.2020 and its amendments, we hereby certify that we <b>M/s {companyName}</b> are local supplier meeting the requirement of
 minimum local content i.e., <b>{percentage}%</b> as defined in above orders for the
 material against IPR Enquiry/Tender No <b>{bidNumber}</b> dated <b>{bidDate}</b> Details of location at
 which local value addition will be made as follows:
@@ -139,7 +156,7 @@ under law.
 <br/>
 For <b>{companyName}</b>.
         </Typography>
-          </Paper>
+    </Box>
     </Box>
         </div>
     )
