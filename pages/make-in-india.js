@@ -45,6 +45,8 @@ function MII() {
       setMarginTop(value);
     }    
 
+    const componentRef = useRef();
+
     return (
         <div>
             <Head>
