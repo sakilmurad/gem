@@ -1,6 +1,6 @@
 const fs = require('fs')
 const domain = "https://gemportal.vercel.app";
-let data = JSON.parse(fs.readFileSync('/project/gem/src/data.json', 'utf-8'))
+let data = JSON.parse(fs.readFileSync('src/data.json', 'utf-8'))
 
 const generatedData = data.map(data => {
     return (
@@ -17,7 +17,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${generatedData}
 </urlset>`;
 
-const pathOfDataFile = "/project/gem/public/sitemap.xml";
+const pathOfDataFile = "public/sitemap.xml";
 //write file
 fs.writeFileSync(pathOfDataFile, sitemap);
 

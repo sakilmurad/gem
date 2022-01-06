@@ -1,11 +1,12 @@
 const fs = require('fs')
 
-const dir = '/project/gem/posts'
+const dir = 'posts'
+
 const files = fs.readdirSync(dir)
 let filesArray = [{"title":"What is GeM","slug":"/", "created": "2021-12-10T17:48:29.837Z"}];
 
 function createdDate (file) {  
-    const { birthtime } = fs.statSync(`/project/gem/posts/${file}`)
+    const { birthtime } = fs.statSync(`posts/${file}`)
   
     return birthtime
   }
@@ -32,7 +33,7 @@ filesArray.sort(function (a, b) {
 	var dateA = new Date(a.created), dateB = new Date(b.created)
 	return dateA - dateB
 });
-const pathOfDataFile = "/project/gem/src/data.json";
+const pathOfDataFile = "src/data.json";
 //write file
 fs.writeFileSync(pathOfDataFile, JSON.stringify(filesArray));
-console.log("sidebar Generated");
+console.log("sidebar generated");
