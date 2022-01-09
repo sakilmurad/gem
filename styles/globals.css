@@ -108,3 +108,19 @@ h2, h3, sup{
 .center{
   text-align: center;
 }
+.notes{
+  padding: 10px;
+  border-radius: 12px;
+  border: 2px solid #1976d2;
+}
+.notes .title{
+  font-weight: 600;
+  text-decoration: underline;
+}
+.notes .content{
+  margin-top:-15px
+}
+.close-button{
+  cursor: pointer;
+  color:aqua
+}

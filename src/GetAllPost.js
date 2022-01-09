@@ -12,7 +12,7 @@ function createdDate (file) {
   }
 
 for (const file of files) {
-    let fileDetail = file.replace('.mdx', '').replace('-',' ').replace('_',' ');
+    let fileDetail = file.replace('.mdx', '').replace(new RegExp("-", 'g'),' ').replace(new RegExp("_", 'g'),' ');
     const arr = fileDetail.split(" ");
     for (var i = 0; i < arr.length; i++) {
         arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);

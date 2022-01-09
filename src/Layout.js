@@ -24,7 +24,7 @@ import CloudOffIcon from '@mui/icons-material/CloudOff';
 import Image from "next/image"
 import Typography from '@mui/material/Typography';
 
-const drawerWidth = 200;
+const drawerWidth = 220;
 
 const errorIcon = () => {
   return (
@@ -212,14 +212,14 @@ export default function Layout({ data, isLoading, children }, props) {
           <Toolbar />
           {children}
           <div className='copyright-notice'>
-        Copyright Notic: We hereby declare that we are not the full owner of the content. We also declare that we use other creator's content for fair and teaching purpose only.
+        Copyright Notic: We use other creator's content for fair and teaching purpose only.
         </div>
         <div className='footer-links'>
           <Link href="/make-in-india">MII Certificate Generator</Link>
           <Link href="/about-us">About us</Link>
           <Link href="/contact">Contact</Link>
         </div>
-      <div className='footer'>&copy; 2021, GeM Portal Course and the respective content owners.</div>
+      <div className='footer'>&copy; {new Date().getFullYear()}, GeM Portal Course and the respective content owners.</div>
         </Box>
       </Box>
     </ThemeProvider>

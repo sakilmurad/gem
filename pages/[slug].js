@@ -21,8 +21,9 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import Snackbar from '@mui/material/Snackbar';
 import Image from "next/image"
+import Notes from '../src/Notes'
 
-const components = { Button, Link, Image, SyntaxHighlighter, h2: H2, h3: H3 }
+const components = { Button, Link, Image, SyntaxHighlighter, h2: H2, h3: H3, Notes }
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
