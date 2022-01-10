@@ -24,7 +24,7 @@ import CloudOffIcon from '@mui/icons-material/CloudOff';
 import Image from "next/image"
 import Typography from '@mui/material/Typography';
 
-const drawerWidth = 220;
+const drawerWidth = 200;
 
 const errorIcon = () => {
   return (
