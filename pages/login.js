@@ -128,8 +128,8 @@ function Login() {
   return (
     <Container component="main" maxWidth="xs">
       <Head>
-            <meta name="robots" content="noindex" />
             <title>Login - GeM Portal Course</title>
+            <meta name="description" content="Login to use advance services on GeM Portal Course" />
             </Head>
       {formLoading && <LinearProgress />}
       <Box

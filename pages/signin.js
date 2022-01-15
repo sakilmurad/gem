@@ -146,8 +146,8 @@ function Signin() {
   return (
     <Container component="main" maxWidth="xs">
       <Head>
-            <meta name="robots" content="noindex" />
             <title>Signin - GeM Portal Course</title>
+            <meta name="description" content="Signin to use advance services on GeM Portal Course" />
             </Head>
       {formLoading && <LinearProgress/>}
     <CssBaseline />
