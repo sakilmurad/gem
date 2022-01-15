@@ -96,7 +96,7 @@ const Home = () => {
         alignItems="flex-start"
         className="main-content"
       >
-        <Grid item xs={12} sm={2}>
+        <Grid item xs={12} sm={2.5}>
           <Grid sx={{ position: { sm: "absolute" } }}>
             <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' }, top: "90px" }}>
               <div className="table-of-content">
@@ -129,7 +129,7 @@ const Home = () => {
           message={`Section Link copied Successfully`}
           onClose={handleClose}
         />
-        <Grid item xs={12} sm={10}>
+        <Grid item xs={12} sm={9.5}>
           <Paper elevation={3} sx={{ p: "20px" }}>
           <h1>GeM - Government e-Marketplace</h1>
         <Divider />

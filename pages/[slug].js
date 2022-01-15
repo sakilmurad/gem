@@ -89,7 +89,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
           alignItems="flex-start"
           className="main-content"
         >
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={2.5}>
             <Grid sx={{position: {sm: "absolute"} }}>
             <Paper elevation={3} sx={{ p: 2, position: { sm: 'fixed' }, top: "90px" }}>
     <div className="table-of-content">
@@ -116,7 +116,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
   </Paper>
             </Grid>
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item xs={12} sm={9.5}>
             <Paper elevation={3} sx={{p:"20px"}}>
             <h1>{title}</h1>
         <Divider />
