@@ -12,7 +12,6 @@ class MyDocument extends Document {
             <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
             <meta name="theme-color" content="#1976d2"/>
-            <link href='https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap' rel='stylesheet' />
           </Head >
           <body>
             <Main />
