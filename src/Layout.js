@@ -212,7 +212,7 @@ export default function Layout({ data, isLoading, children }, props) {
           <Toolbar />
           {children}
           <div className='copyright-notice'>
-        Copyright Notic: We use other creator's content for fair and teaching purpose only.
+        Copyright notice: We use other creator's content for fair and teaching purpose only.
         </div>
         <div className='footer-links'>
           <Link href="/make-in-india">MII Certificate Generator</Link>

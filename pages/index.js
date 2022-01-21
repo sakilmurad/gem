@@ -158,7 +158,7 @@ const Home = () => {
               </Tooltip>
             </h2>
             <ul>
-              <li>Institute a unified procurement policy to encourage behavorial change and drive reform.</li>
+              <li>Institute a unified procurement policy to encourage behavioral change and drive reform.</li>
               <li>Establish a lean, dynamic organization capable of continuous innovation and market driven decision making.</li>
               <li>Build an easy to use, fully automated platform to ensure transparency and efficiency in procurement</li>
               <li>Demonstrate commitment to delivering value by ensuring right quality at right price</li>
@@ -256,14 +256,14 @@ const Home = () => {
             </TabContext>
             <a href="https://gem.gov.in/page/detail/26" target="_blank" rel="nofollow noreferrer"><Button variant="text">Source {<LaunchIcon />}</Button></a>
 
-            <h2 id="key-stackholders-of-gem">
-              <span>Key Stackholders of GeM</span>
-              <Tooltip title={`Copy link to this section: key-stackholders-of-gem`}>
-                <IconButton onClick={() => copylink("#key-stackholders-of-gem")} className="anchor-link">
+            <h2 id="key-stakeholders-of-gem">
+              <span>Key Stakeholders of GeM</span>
+              <Tooltip title={`Copy link to this section: key-stakeholders-of-gem`}>
+                <IconButton onClick={() => copylink("#key-stakeholders-of-gem")} className="anchor-link">
                   <InsertLinkIcon />
                 </IconButton>
               </Tooltip></h2>
-            <p>Here are some stackeholders of GeM.</p>
+            <p>Here are some stakeholders of GeM.</p>
             <h3 id="internal">
               <span>Internal</span>
               <Tooltip title={`Copy link to this section: Internal`}>
