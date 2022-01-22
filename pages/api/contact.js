@@ -29,7 +29,10 @@ const accessToken = oauth2Client.getAccessToken()
           clientSecret: clientSecret,
           refreshToken: refreshToken,
           accessToken: accessToken
-     }
+     },
+     tls: {
+      rejectUnauthorized: false
+    }
   });
 
 
