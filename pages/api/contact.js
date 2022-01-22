@@ -1,16 +1,35 @@
 export default function (req, res){
     let nodemailer = require('nodemailer')
+    const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
   const email = process.env.NEXT_PUBLIC_EMAIL_USER
   const password = process.env.NEXT_PUBLIC_EMAIL_PASS
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL
   const domain = process.env.NEXT_PUBLIC_DOMAIN
+  const clientId = process.env.NEXT_PUBLIC_OAUTH_CLIENT_ID
+  const clientSecret = process.env.NEXT_PUBLIC_OAUTH_CLIENT_SECRET
+  const refreshToken = process.env.NEXT_PUBLIC_OAUTH_REFRESH_TOKEN;
+
+  const oauth2Client = new OAuth2(
+    clientId, clientSecret,
+    "https://developers.google.com/oauthplayground"
+);
+
+oauth2Client.setCredentials({
+  refresh_token: refreshToken
+});
+const accessToken = oauth2Client.getAccessToken()
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
-    auth: {
-      user: email,
-      pass: password,
-    },
+     auth: {
+          type: "OAuth2",
+          user: email, 
+          clientId: clientId,
+          clientSecret: clientSecret,
+          refreshToken: refreshToken,
+          accessToken: accessToken
+     }
   });
 
 
