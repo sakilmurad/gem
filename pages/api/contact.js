@@ -224,14 +224,14 @@ transporter.sendMail(mailOption, (err, data) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("mail send");
+      console.log(`mail send to ${req.body.email}`);
     }
   });
   transporter.sendMail(mailOptionAdmin, (err,data)=>{
     if (err) {
       console.log(err);
     } else {
-      console.log("mail send");
+      console.log(`mail send ${email}`);
     }
   })
   res.send("success");
