@@ -1,11 +1,38 @@
 const fs = require('fs')
-const domain = "https://gemportal.vercel.app";
+const domain = "https://gpc.edafter.com";
 let data = JSON.parse(fs.readFileSync('src/data.json', 'utf-8'))
 
+const defaultPages = `
+<url>
+<loc>${domain}/about-us</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>${domain}/contact</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>${domain}/login</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>${domain}/make-in-india</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>${domain}/signin</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+`;
+
 const generatedData = data.map(data => {
+  let slug = `/${data.slug}`;
+  if(data.slug == "/"){
+     slug = "";
+  }
     return (
         `<url>
-    <loc>${domain}/${data.slug}</loc>
+    <loc>${domain}${slug}</loc>
     <lastmod>${data.created}</lastmod>
   </url>`
     )
@@ -14,6 +41,7 @@ const generatedData = data.map(data => {
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${defaultPages}
 ${generatedData}
 </urlset>`;
 

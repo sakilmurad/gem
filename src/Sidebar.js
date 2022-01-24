@@ -9,7 +9,7 @@ import Fuse from "fuse.js";
 const postData = require("./data.json");
 
 const Search = styled("div")(({ theme }) => ({
-  margin: "5px 3px",
+  margin: "8px 3px",
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: alpha(theme.palette.common.white, 0.15),

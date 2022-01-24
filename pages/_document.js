@@ -12,6 +12,7 @@ class MyDocument extends Document {
             <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
             <meta name="theme-color" content="#1976d2"/>
+            <link rel="manifest" href="/manifest.json"/>
           </Head >
           <body>
             <Main />

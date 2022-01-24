@@ -66,13 +66,8 @@ export default function Layout({ data, isLoading, children }, props) {
     setMobileOpen(!mobileOpen);
   };
   const container = window !== undefined ? () => window().document.body : undefined;
-  const [dark, setDark] = React.useState(false)
 
   let theme = createTheme({
-    palette: {
-      type: dark ? 'dark' : 'light',
-      mode: dark ? 'dark' : 'light',
-    },
     typography: {
       
       h1: {
@@ -91,10 +86,6 @@ export default function Layout({ data, isLoading, children }, props) {
     },
   });
   theme = responsiveFontSizes(theme);
-
-  const HandleThemeChange = () => {
-    setDark(!dark);
-  }
 
   const Signout = () => {
     signOut(authorization).then(() => {
@@ -125,14 +116,14 @@ export default function Layout({ data, isLoading, children }, props) {
             <Link href="/" >
               <a className="header-logo" >
                 <Image
-                  src="https://res.cloudinary.com/dl3tfsbn5/image/upload/ar_1:1,b_rgb:1976d2,bo_0px_solid_rgb:ff0000,c_fill,g_auto,h_93,r_max,w_99/v1640360177/fullogo.png"
+                  src="https://res.cloudinary.com/dl3tfsbn5/image/upload/v1643042307/new_logo_with_white_back_dw9i9l.svg"
                   alt="Logo"
-                  width={35}
-                  height={35}
+                  width={45}
+                  height={45}
                 />
                 <span className="logo-text">
-                  <Typography variant="h6" gutterBottom component="div" sx={{ display: { xs: 'none', sm: 'block' } }}>GeM Portal Course</Typography>
-                  <Typography variant="h6" gutterBottom component="div" sx={{ display: { xs: 'block', sm: 'none' } }}>GPC</Typography>
+                  <Typography variant="h5" gutterBottom component="div" sx={{ display: { xs: 'none', sm: 'block' }, marginTop: "8px" }}>GeM Portal Course</Typography>
+                  <Typography variant="h6" gutterBottom component="div" sx={{ display: { xs: 'block', sm: 'none' }, marginTop: "8px" }}>GeM Portal Course</Typography>
                 </span>
               </a>
             </Link>
@@ -169,8 +160,6 @@ export default function Layout({ data, isLoading, children }, props) {
               </Menu>
             </div>
           ) : <Link href="/login"><Button variant="contained">Login</Button></Link>}
-
-          <Switch handle={HandleThemeChange} />
         </Toolbar>
       </AppBar>
 
