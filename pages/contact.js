@@ -21,11 +21,11 @@ const insertData = async (name, email, phone, message) => {
     message,
   };
 
-  try {
-    await addDoc(collection(db, "contact"), data);
-  } catch (e) {
-    console.log(e);
-  }
+  // try {
+  //   await addDoc(collection(db, "contact"), data);
+  // } catch (e) {
+  //   console.log(e);
+  // }
 };
 
 function Contact() {
