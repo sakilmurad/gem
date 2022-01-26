@@ -205,6 +205,7 @@ export default function Layout({ data, isLoading, children }, props) {
         </div>
         <div className='footer-links'>
           <Link href="/make-in-india">MII Certificate Generator</Link>
+          <Link href="/service">Services</Link>
           <Link href="/about-us">About us</Link>
           <Link href="/contact">Contact</Link>
         </div>

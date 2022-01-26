@@ -25,26 +25,29 @@
 <url>
     <loc>https://gpc.edafter.com</loc>
     <lastmod>2021-12-10T17:48:29.837Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/pre-requisite</loc>
     <lastmod>2022-01-21T16:08:57.485Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/gem-registration</loc>
     <lastmod>2022-01-21T16:10:28.953Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/profile-completion</loc>
     <lastmod>2022-01-21T16:11:50.967Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/secondary-user-creation</loc>
     <lastmod>2022-01-21T16:12:18.744Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/seller-dashboard-overview</loc>
     <lastmod>2022-01-21T16:12:49.065Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/vendor-assesment</loc>
     <lastmod>2022-01-21T16:13:10.878Z</lastmod>
-  </url>,<url>
+  </url> <url>
     <loc>https://gpc.edafter.com/catalogue-management-products</loc>
     <lastmod>2022-01-21T16:13:34.686Z</lastmod>
+  </url> <url>
+    <loc>https://gpc.edafter.com/catalogue-management-services</loc>
+    <lastmod>2022-01-25T15:45:26.173Z</lastmod>
   </url>
 </urlset>
