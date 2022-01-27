@@ -120,7 +120,7 @@ async function sendEmail(req, res) {
   
               <!-- START CENTERED WHITE CONTAINER -->
               <table role="presentation" class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; background: #ffffff; border-radius: 3px; width: 100%;" width="100%">
-               <img src="https://res.cloudinary.com/dl3tfsbn5/image/upload/v1643042686/new_full_logo_with_white_back_kiwh0v.svg" class="logo" />
+               <img src="https://res.cloudinary.com/dl3tfsbn5/image/upload/v1643303380/new_full_logo_with_white_back_kmrxta.png" class="logo" />
                 <!-- START MAIN CONTENT AREA -->
                 <tr>
                   <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;" valign="top">
@@ -145,7 +145,7 @@ async function sendEmail(req, res) {
                               </tr>
                             </tbody>
                           </table>
-                          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">We love to see you oon the website.</p>
+                          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">We love to see you on our website.</p>
                           <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px;">Good luck!.</p>
                         </td>
                       </tr>
