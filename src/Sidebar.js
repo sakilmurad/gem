@@ -6,6 +6,7 @@ import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Fuse from "fuse.js";
+
 const postData = require("./data.json");
 
 const Search = styled("div")(({ theme }) => ({
@@ -72,13 +73,14 @@ function Sidebar(props) {
   return (
     <Box sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       <Search>
-        <SearchIconWrapper><SearchIcon /></SearchIconWrapper>
+        <SearchIconWrapper>
+          <SearchIcon />
+        </SearchIconWrapper>
         <StyledInputBase
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
           onChange={handleChange}
         />
-        
       </Search>
       <ul className="sidebar-link">
         {menuData.map((post, index) => (
@@ -88,7 +90,9 @@ function Sidebar(props) {
             className={router.asPath == `/${post.slug}` ? "active" : ""}
           >
             <Link
-              href={post.slug == undefined ? post.item.slug : post.slug}
+              href={
+                post.slug == undefined ? `/${post.item.slug}` : `/${post.slug}`
+              }
               className="sidebar-anchor"
             >
               {post.title == undefined ? post.item.title : post.title}

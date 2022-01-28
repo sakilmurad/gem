@@ -14,8 +14,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
 import LinearProgress from "@mui/material/LinearProgress";
-import Paper from "@mui/material/Paper";
-import Switch from "./Switch";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { authorization } from "../firebase/config";
@@ -27,7 +25,7 @@ import Avatar from "@mui/material/Avatar";
 import CloudOffIcon from "@mui/icons-material/CloudOff";
 import Image from "next/image";
 import Typography from "@mui/material/Typography";
-
+import Grid from "@mui/material/Grid";
 const drawerWidth = 200;
 
 const errorIcon = () => {
@@ -241,23 +239,55 @@ export default function Layout({ data, isLoading, children }, props) {
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Toolbar />
           {children}
-          <div className="copyright-notice">
-            Copyright notice: We use other creator's content for fair and
-            teaching purpose only.
-          </div>
-          <div className="footer-links">
-            <Link href="/tools/make-in-india">MII Certificate Generator</Link>
-            <Link href="/tools/reseller-authority-letter">
-              Reseller Authority Letter
-            </Link>
-            <Link href="/service">Services</Link>
-            <Link href="/about-us">About us</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-          <div className="footer">
-            &copy; {new Date().getFullYear()}, GeM Portal Course and the
-            respective content owners.
-          </div>
+          <hr className="footer-hr" />
+          <Grid container className="footer-container">
+            <Grid item xs={6} sm={4} md={4}>
+              <strong className="footer-heading">Information</strong>
+              <ul className="footer-ul">
+                <li>
+                  <Link href="/about-us">About us</Link>
+                </li>
+                <li>
+                  <Link href="/terms-and-conditions">Terms and Conditions</Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy">Privacy Policy</Link>
+                </li>
+              </ul>
+            </Grid>
+            <Grid item xs={6} sm={4} md={4}>
+              <strong className="footer-heading">Tools</strong>
+              <ul className="footer-ul">
+                <li>
+                  <Link href="/tools/make-in-india">
+                    MII Certificate Generator
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tools/reseller-authority-letter">
+                    Reseller Authority Letter
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/tools/bidder-financial-standing">
+                    Bidder Financial Standing
+                  </Link>
+                </li>
+              </ul>
+            </Grid>
+            <Grid item xs={6} sm={4} md={4}>
+              <strong className="footer-heading">Support</strong>
+              <ul className="footer-ul">
+                <li>
+                  <Link href="/contact">Contact</Link>
+                </li>
+              </ul>
+            </Grid>
+            <div className="footer">
+              &copy; {new Date().getFullYear()}, GeM Portal Course and the
+              respective content owners.
+            </div>
+          </Grid>
         </Box>
       </Box>
     </ThemeProvider>

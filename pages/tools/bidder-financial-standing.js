@@ -9,12 +9,11 @@ import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
 
-function Reseller() {
+var utc = new Date().toJSON().slice(0, 10).replace(/-/g, "/");
+
+function Bfs() {
   const [companyName, setCompanyName] = useState("ABC Pvt Ltd");
-  const [percentage, setPercentage] = useState("80");
-  const [bidNumber, setBidNumber] = useState();
-  const [bidDate, setBidDate] = useState("31-12-2021");
-  const [address, setAddress] = useState("XYZ, New Delhi - 110041");
+  const [refNumber, setRefNumber] = useState(`GPC/${utc}`);
   const [margingTop, setMarginTop] = useState(0);
 
   const handleChange = (e) => {
@@ -24,17 +23,8 @@ function Reseller() {
       case "CompanyName":
         setCompanyName(value);
         return;
-      case "Percentage":
-        setPercentage(value);
-        return;
-      case "BidNumber":
-        setBidNumber(value);
-        return;
-      case "BidDate":
-        setBidDate(value);
-        return;
-      case "Address":
-        setAddress(value);
+      case "refNumber":
+        setRefNumber(value);
         return;
     }
   };
@@ -52,15 +42,15 @@ function Reseller() {
     <div>
       <Head>
         <title>
-          Reseller Authorization Letter Generator for GeM - GeM Portal Course
+          Bidder Financial Standing Letter Generator for GeM - GeM Portal Course
         </title>
         <meta
           name="description"
-          content="Reseller authorization letter creator for a bidding on GeM Portal. Authority letter generator for reseller on GeM Portal."
+          content="Bidder financial letter creator for a bidding on GeM Portal. Bankruptancy undertaking generator for reseller on GeM Portal."
         />
       </Head>
       <h1 className="center">
-        Reseller Authorization Letter Generator for GeM
+        Bidder Financial Standing Letter Generator for GeM
       </h1>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -77,38 +67,9 @@ function Reseller() {
           <TextField
             fullWidth
             required
-            id="BidNumber"
-            label="GeM Bid/RA Number"
-            name="bidNumber"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={2}>
-          <TextField
-            fullWidth
-            name="percentage"
-            label="Percentage"
-            type="number"
-            id="Percentage"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            name="date"
-            label="Bid Start Date"
-            id="BidDate"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            required
-            label="Address"
-            name="address"
-            id="Address"
+            id="refNumber"
+            label="Reference Number"
+            name="refNumber"
             onChange={handleChange}
           />
         </Grid>
@@ -147,39 +108,23 @@ function Reseller() {
       >
         <Box>
           <p style={{ textAlign: "left" }}>
-            Ref No:
+            Ref No: {refNumber}
             <span style={{ float: "right" }}>{today}</span>
-          </p>
-          <p>
-            To,
-            <br /> The CEO,
-            <br /> <b>Gem-Government E Marketplace</b>,
-            <br /> Delhi.
           </p>
           <Typography
             sx={{ textAlign: "center", pt: margingTop }}
             variant="h6"
             component="div"
           >
-            <u>Sub: Manufacturer&apos;s Authority Letter</u>
-            <br />
-            {bidNumber ? <u>GeM Bid/RA No: {bidNumber}</u> : null}
-            <br />
+            <u>TO WHOM SOEVER IT MAY CONCERN</u>
           </Typography>
-          <p>Dear Sir / Madam,</p>
-          <Typography variant="body1" sx={{ textIndent: "70px" }}>
-            We would like to inform you that {companyName} is our authorized
-            distributor for our {companyName} range of single use products for
-            the above mentioned tender.
+          <br />
+          <Typography variant="body1">
+            We would like to inform you that, we are not under liquidation,
+            court receivership or similar proceedings. We also confirm that we
+            are not bankrupt.
           </Typography>
-          <Typography sx={{ textIndent: "70px" }}>
-            They are authorized to quote rates, collect supply orders, make
-            supplies, raise their own invoices and collect payments on our
-            behalf.
-          </Typography>
-          <p>
-            <b>The Authorization is Valid till Validity of the above Bid.</b>
-          </p>
+          <p>Thanking you & assuring you of our best services always.</p>
           For <b>{companyName}</b>.
         </Box>
       </Box>
@@ -187,4 +132,4 @@ function Reseller() {
   );
 }
 
-export default Reseller;
+export default Bfs;

@@ -1,4 +1,3 @@
-
 html,
 body {
   padding: 0;
@@ -9,10 +8,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
-main a{
+main a {
   color: rgb(113, 113, 230);
 }
-main{
+main {
   font-size: 16px;
 }
 
@@ -20,13 +19,13 @@ main{
   box-sizing: border-box;
 }
 
-.header-logo{
+.header-logo {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.logo-text{
+.logo-text {
   font-size: 1.4rem;
   /* margin-bottom: -20px; */
   margin-left: 5px;
@@ -35,91 +34,108 @@ main{
 .anchor-link {
   opacity: 0;
 }
-h2:hover .anchor-link, h3:hover .anchor-link {
+h2:hover .anchor-link,
+h3:hover .anchor-link {
   opacity: 1;
 }
-.anchor-link:hover{
+.anchor-link:hover {
   color: rgb(8, 110, 199);
 }
-.table-of-content li{
+.table-of-content li {
   font-size: 0.8rem;
   list-style: none;
 }
-.table-of-content ul{
+.table-of-content ul {
   margin-left: -38px;
   margin-top: 0px;
 }
-.table-of-content ul .submenu{
+.table-of-content ul .submenu {
   margin-left: -30px;
 }
-.sidebar-link{
+.sidebar-link {
   list-style: none;
   margin-left: -30px;
 }
-.sidebar-link li{
+.sidebar-link li {
   font-size: 1rem;
   padding: 5px;
   border-radius: 5px;
   display: block;
 }
-.sidebar-link li:hover{
-  color:rgb(56, 136, 228);
+.sidebar-link li:hover {
+  color: rgb(56, 136, 228);
   background-color: aliceblue;
-  
 }
-.sidebar-link .active{
-  color:rgb(56, 136, 228);
+.sidebar-link .active {
+  color: rgb(56, 136, 228);
   font-weight: 550;
   background-color: aliceblue;
 }
-.sidebar-link li a{
+.sidebar-link li a {
   display: block;
 }
-.accordation{
+.accordation {
   margin-top: -15px;
 }
-h2, h3, sup{
+h2,
+h3,
+sup {
   margin-bottom: -10px;
   scroll-margin-top: 60px;
 }
 
-.error-div-sidebar{
+.error-div-sidebar {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.bottom-error{
+.bottom-error {
   margin-top: -5px;
 }
-.footer{
+.footer {
+  display: block;
+  margin: 0 auto;
   text-align: center;
-  margin-top: 5px;
+  /* margin-top: 5px; */
 }
-.copyright-notice{
+.copyright-notice {
   margin: 10px 0px;
 }
-.footer-links{
+.footer-ul {
+  list-style: none;
+}
+.footer-ul li:first-child {
+  margin-top: -8px;
+}
+.footer-heading {
+  font-size: large;
+  margin-left: 40px;
+}
+.center {
   text-align: center;
 }
-.footer-links a{
-  margin: 5px;
-}
-.center{
-  text-align: center;
-}
-.notes{
+.notes {
   padding: 10px;
   border-radius: 12px;
   border: 2px solid #1976d2;
 }
-.notes .title{
+.notes .title {
   font-weight: 600;
   text-decoration: underline;
 }
-.notes .content{
-  margin-top:-15px
+.notes .content {
+  margin-top: -15px;
 }
-.close-button{
+.close-button {
   cursor: pointer;
-  color:aqua
+  color: aqua;
+}
+.footer-hr {
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+.footer-container {
+  background-color: rgba(25, 126, 247, 0.1);
+  padding: 10px;
+  border-radius: 10px;
 }
