@@ -26,6 +26,12 @@ import CloudOffIcon from "@mui/icons-material/CloudOff";
 import Image from "next/image";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 const drawerWidth = 200;
 
 const errorIcon = () => {
@@ -43,7 +49,17 @@ export default function Layout({ data, isLoading, children }, props) {
   const [isSigned, setIsSigned] = React.useState(false);
   const [userData, setUserData] = React.useState([]);
   const [anchorElProfileMenu, setanchorElProfileMenu] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleSubscribeSubmit = () => {};
   const handleProfileMenu = (event) => {
     setanchorElProfileMenu(event.currentTarget);
   };
@@ -281,6 +297,11 @@ export default function Layout({ data, isLoading, children }, props) {
                 <li>
                   <Link href="/contact">Contact</Link>
                 </li>
+                <li>
+                  <Button variant="contained" onClick={handleClickOpen}>
+                    Subscribe
+                  </Button>
+                </li>
               </ul>
             </Grid>
             <div className="footer">
@@ -290,6 +311,29 @@ export default function Layout({ data, isLoading, children }, props) {
           </Grid>
         </Box>
       </Box>
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Subscribe</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Please enter your email address to get updates about GeM Portal
+            Course.
+          </DialogContentText>
+          <TextField
+            autoFocus
+            required
+            margin="dense"
+            id="name"
+            label="Email Address"
+            type="email"
+            fullWidth
+            variant="standard"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleSubscribeSubmit}>Subscribe</Button>
+        </DialogActions>
+      </Dialog>
     </ThemeProvider>
   );
 }

@@ -10,31 +10,33 @@ import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
 
 function Reseller() {
-  const [companyName, setCompanyName] = useState("ABC Pvt Ltd");
-  const [percentage, setPercentage] = useState("80");
-  const [bidNumber, setBidNumber] = useState();
-  const [bidDate, setBidDate] = useState("31-12-2021");
-  const [address, setAddress] = useState("XYZ, New Delhi - 110041");
+  const [CompanyName, setCompanyName] = useState("XYZ Pvt Ltd");
+  const [ResellerName, setresellerName] = useState(
+    "ABC Pvt Ltd, Nangloi, New Delhi 110041"
+  );
+  const [BrandName, setBrandName] = useState("Edafter");
+  const [BidNumber, setBidNumber] = useState();
+  const [Validity, setvalidity] = useState("31-03-2022");
   const [margingTop, setMarginTop] = useState(0);
 
   const handleChange = (e) => {
     const Id = e.target.id;
     const value = e.target.value;
     switch (Id) {
-      case "CompanyName":
+      case "companyname":
         setCompanyName(value);
         return;
-      case "Percentage":
-        setPercentage(value);
+      case "resellername":
+        setresellerName(value);
+        return;
+      case "brandname":
+        setBrandName(value);
         return;
       case "BidNumber":
         setBidNumber(value);
         return;
-      case "BidDate":
-        setBidDate(value);
-        return;
-      case "Address":
-        setAddress(value);
+      case "date":
+        setvalidity(value);
         return;
     }
   };
@@ -67,9 +69,29 @@ function Reseller() {
           <TextField
             fullWidth
             required
-            id="CompanyName"
-            label="Company Name"
+            id="companyname"
+            label="Your Company Name"
             name="companyname"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            fullWidth
+            required
+            id="resellername"
+            label="Reseller Name"
+            name="resellername"
+            onChange={handleChange}
+          />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField
+            fullWidth
+            required
+            name="brandname"
+            label="Brand Name"
+            id="brandname"
             onChange={handleChange}
           />
         </Grid>
@@ -79,36 +101,16 @@ function Reseller() {
             required
             id="BidNumber"
             label="GeM Bid/RA Number"
-            name="bidNumber"
+            name="BidNumber"
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12} sm={2}>
-          <TextField
-            fullWidth
-            name="percentage"
-            label="Percentage"
-            type="number"
-            id="Percentage"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={4}>
           <TextField
             fullWidth
             name="date"
-            label="Bid Start Date"
-            id="BidDate"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            required
-            label="Address"
-            name="address"
-            id="Address"
+            label="Validity of Authorization"
+            id="date"
             onChange={handleChange}
           />
         </Grid>
@@ -146,31 +148,29 @@ function Reseller() {
         id="generated-content"
       >
         <Box>
-          <p style={{ textAlign: "left" }}>
-            Ref No:
-            <span style={{ float: "right" }}>{today}</span>
-          </p>
-          <p>
-            To,
-            <br /> The CEO,
-            <br /> <b>Gem-Government E Marketplace</b>,
-            <br /> Delhi.
-          </p>
-          <Typography
-            sx={{ textAlign: "center", pt: margingTop }}
-            variant="h6"
-            component="div"
-          >
+          <Typography sx={{ pt: margingTop }}>
+            <p style={{ textAlign: "left" }}>
+              Ref No:
+              <span style={{ float: "right" }}>{today}</span>
+            </p>
+            <p>
+              To,
+              <br /> The CEO,
+              <br /> <b>Gem-Government E Marketplace</b>,
+              <br /> Delhi.
+            </p>
+          </Typography>
+          <Typography sx={{ textAlign: "center" }} variant="h6" component="div">
             <u>Sub: Manufacturer&apos;s Authority Letter</u>
             <br />
-            {bidNumber ? <u>GeM Bid/RA No: {bidNumber}</u> : null}
+            {BidNumber ? <u>GeM Bid/RA No: {BidNumber}</u> : null}
             <br />
           </Typography>
           <p>Dear Sir / Madam,</p>
           <Typography variant="body1" sx={{ textIndent: "70px" }}>
-            We would like to inform you that {companyName} is our authorized
-            distributor for our {companyName} range of single use products for
-            the above mentioned tender.
+            We would like to inform you that <strong>{ResellerName}</strong> is
+            our authorized distributor for our <strong>{BrandName}</strong>{" "}
+            range of single use products for the above mentioned tender.
           </Typography>
           <Typography sx={{ textIndent: "70px" }}>
             They are authorized to quote rates, collect supply orders, make
@@ -178,9 +178,9 @@ function Reseller() {
             behalf.
           </Typography>
           <p>
-            <b>The Authorization is Valid till Validity of the above Bid.</b>
+            <strong>The Authorization is Valid till {Validity}.</strong>
           </p>
-          For <b>{companyName}</b>.
+          For <b>{CompanyName}</b>.
         </Box>
       </Box>
     </div>

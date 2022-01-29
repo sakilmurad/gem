@@ -103,13 +103,14 @@ sup {
 }
 .footer-ul {
   list-style: none;
+  margin-left: -40px;
 }
 .footer-ul li:first-child {
   margin-top: -8px;
 }
 .footer-heading {
   font-size: large;
-  margin-left: 40px;
+  /* margin-left: 40px; */
 }
 .center {
   text-align: center;
