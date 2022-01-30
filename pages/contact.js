@@ -12,6 +12,8 @@ import Snackbar from "@mui/material/Snackbar";
 import { collection, addDoc } from "firebase/firestore";
 import Head from "next/head";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import EmailIcon from "@mui/icons-material/Email";
+import BusinessIcon from "@mui/icons-material/Business";
 
 const insertData = async (name, email, phone, message) => {
   const data = {
@@ -87,6 +89,10 @@ function Contact() {
       <Head>
         <meta name="robots" content="noindex" />
         <title>Contact us - GeM Portal Course</title>
+        <meta
+          name="description"
+          content="contact the GeM Portal Course for any query or any suggestions."
+        />
       </Head>
       {formLoading && <LinearProgress />}
       <Box
@@ -171,6 +177,15 @@ function Contact() {
               Submit
             </Button>
           </Box>
+        </Box>
+        <Box>
+          <p className="email-p">
+            <EmailIcon fontSize="small" /> <span>edafter2022@gmail.com</span>
+          </p>
+          <p className="email-p">
+            <BusinessIcon fontSize="small" />{" "}
+            <span>5-B Nangloi Najafgarh Road, New Delhi - 110041</span>
+          </p>
         </Box>
       </Box>
       <Snackbar

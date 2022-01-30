@@ -140,3 +140,9 @@ sup {
   padding: 10px;
   border-radius: 10px;
 }
+.email-p {
+  color: #1976d2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

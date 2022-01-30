@@ -264,6 +264,9 @@ export default function Layout({ data, isLoading, children }, props) {
                   <Link href="/about-us">About us</Link>
                 </li>
                 <li>
+                  <Link href="/pricing">Pricing</Link>
+                </li>
+                <li>
                   <Link href="/terms-and-conditions">Terms and Conditions</Link>
                 </li>
                 <li>
@@ -272,11 +275,13 @@ export default function Layout({ data, isLoading, children }, props) {
               </ul>
             </Grid>
             <Grid item xs={6} sm={4} md={4}>
-              <strong className="footer-heading">Tools</strong>
+              <strong className="footer-heading">
+                Documents Creation Tools
+              </strong>
               <ul className="footer-ul">
                 <li>
                   <Link href="/tools/make-in-india">
-                    MII Certificate Generator
+                    (Make in India) MII Certificate
                   </Link>
                 </li>
                 <li>
