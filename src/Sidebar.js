@@ -91,7 +91,9 @@ function Sidebar(props) {
           >
             <Link
               href={
-                post.slug == undefined ? `/${post.item.slug}` : `/${post.slug}`
+                post.slug == undefined
+                  ? `/${post.item.slug}`
+                  : `${post.slug == "/" ? null : "/"}${post.slug}`
               }
               className="sidebar-anchor"
             >

@@ -272,6 +272,9 @@ export default function Layout({ data, isLoading, children }, props) {
                 <li>
                   <Link href="/privacy-policy">Privacy Policy</Link>
                 </li>
+                <li>
+                  <Link href="/refund-policy">Refund Policy</Link>
+                </li>
               </ul>
             </Grid>
             <Grid item xs={6} sm={4} md={4}>
