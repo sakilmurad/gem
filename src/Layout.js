@@ -32,6 +32,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Snackbar from "@mui/material/Snackbar";
 const drawerWidth = 200;
 
 const errorIcon = () => {
@@ -50,7 +51,9 @@ export default function Layout({ data, isLoading, children }, props) {
   const [userData, setUserData] = React.useState([]);
   const [anchorElProfileMenu, setanchorElProfileMenu] = React.useState(null);
   const [open, setOpen] = React.useState(false);
-
+  const [emailId, setEmailId] = React.useState();
+  const [openSnakbar, setOpenSnakbar] = React.useState(false);
+  const [subscribeMessage, setsubscribeMessage] = React.useState();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -59,7 +62,52 @@ export default function Layout({ data, isLoading, children }, props) {
     setOpen(false);
   };
 
-  const handleSubscribeSubmit = () => {};
+  const handleClickSnakbar = () => {
+    setOpenSnakbar(true);
+  };
+
+  const handleCloseSnakbar = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpenSnakbar(false);
+  };
+
+  const handleemailChange = (e) => {
+    setEmailId(e.target.value);
+  };
+
+  const handleSubscribeSubmit = () => {
+    setsubscribeMessage();
+    let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (emailId.match(regexEmail)) {
+      fetch("api/subscribe", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: emailId }),
+      })
+        .then((res) => {
+          if (res.status) {
+            setsubscribeMessage("Thanks for Subscribing");
+          } else {
+            setsubscribeMessage("Something is not right");
+          }
+        })
+        .catch((err) => {
+          setsubscribeMessage("Sending Request...");
+        });
+    } else {
+      setsubscribeMessage("Please Enter a valid Email Id");
+    }
+
+    setOpenSnakbar(true);
+    setOpen(false);
+  };
+
   const handleProfileMenu = (event) => {
     setanchorElProfileMenu(event.currentTarget);
   };
@@ -330,11 +378,12 @@ export default function Layout({ data, isLoading, children }, props) {
             autoFocus
             required
             margin="dense"
-            id="name"
+            id="subscribeEmail"
             label="Email Address"
             type="email"
             fullWidth
             variant="standard"
+            onChange={handleemailChange}
           />
         </DialogContent>
         <DialogActions>
@@ -342,6 +391,12 @@ export default function Layout({ data, isLoading, children }, props) {
           <Button onClick={handleSubscribeSubmit}>Subscribe</Button>
         </DialogActions>
       </Dialog>
+      <Snackbar
+        open={openSnakbar}
+        autoHideDuration={4000}
+        onClose={handleCloseSnakbar}
+        message={subscribeMessage}
+      />
     </ThemeProvider>
   );
 }

@@ -2,7 +2,7 @@ import sendgrid from "@sendgrid/mail";
 const domain = "https://gpc.edafter.com";
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-async function sendEmail(req, res) {
+function sendEmail(req, res) {
   // send mail to client
   const EmailBody = `
     
@@ -190,7 +190,7 @@ async function sendEmail(req, res) {
   }
 
   try {
-    await sendgrid.send({
+    sendgrid.send({
       to: "sakilmurad52@gmail.com", // Your email where you'll receive emails
       from: "GeM Portal Course<info@edafter.com>", // your website email address here
       subject: `New contact message from ${req.body.name}`,

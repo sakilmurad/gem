@@ -30,24 +30,38 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script
+            type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: `{
-                "@context": "https://schema.org",
-                "@type": "CollegeOrUniversity",
-                "name": "GeM Portal Course",
-                "alternateName": "GPC",
-                "url": "https://gpc.edafter.com/",
-                "logo": "https://gpc.edafter.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdl3tfsbn5%2Fimage%2Fupload%2Fv1643042307%2Fnew_logo_with_white_back_dw9i9l.svg&w=48&q=75",
-                "contactPoint": {
-                  "@type": "ContactPoint",
-                  "telephone": "8920344991",
-                  "contactType": "customer service",
-                  "contactOption": "TollFree",
-                  "areaServed": "IN",
-                  "availableLanguage": ["en","Hindi"]
-                }
-              }
-              `,
+              __html: JSON.stringify({
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                name: "GeM Portal Course",
+                image:
+                  "https://res.cloudinary.com/dl3tfsbn5/image/upload/v1643303380/new_full_logo_with_white_back_kmrxta.png",
+                description:
+                  "Briefly explanation about GeM Bids, Catalogue creation, and all workflow on GeM",
+                brand: {
+                  "@type": "Brand",
+                  name: "Edafter",
+                },
+                sku: "GPC",
+                offers: {
+                  "@type": "Offer",
+                  url: "https://gpc.edafter.com",
+                  priceCurrency: "INR",
+                  price: "999",
+                  priceValidUntil: "2023-03-31",
+                  availability: "https://schema.org/OnlineOnly",
+                  itemCondition: "https://schema.org/NewCondition",
+                },
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: "4.9",
+                  bestRating: "5",
+                  worstRating: "1",
+                  ratingCount: "95",
+                },
+              }),
             }}
           />
 
