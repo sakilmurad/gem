@@ -2,7 +2,7 @@ import sendgrid from "@sendgrid/mail";
 const domain = "https://gpc.edafter.com";
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 
-function sendEmail(req, res) {
+async function sendEmail(req, res) {
   // send mail to client
   const EmailBody = `
     
