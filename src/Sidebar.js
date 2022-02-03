@@ -93,7 +93,7 @@ function Sidebar(props) {
               href={
                 post.slug == undefined
                   ? `/${post.item.slug}`
-                  : `${post.slug == "/" ? null : "/"}${post.slug}`
+                  : `${post.slug == "/" ? "" : "/"}${post.slug}`
               }
               className="sidebar-anchor"
             >
