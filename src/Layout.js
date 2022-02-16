@@ -309,16 +309,20 @@ export default function Layout({ data, isLoading, children }, props) {
               <strong className="footer-heading">Information</strong>
               <ul className="footer-ul">
                 <li>
-                  <Link href="/about-us">About us</Link>
+                  <Link href="https://www.edafter.com/about">About us</Link>
                 </li>
                 <li>
                   <Link href="/pricing">Pricing</Link>
                 </li>
                 <li>
-                  <Link href="/terms-and-conditions">Terms and Conditions</Link>
+                  <Link href="https://www.edafter.com/terms-and-conditions">
+                    Terms and Conditions
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/privacy-policy">Privacy Policy</Link>
+                  <Link href="https://www.edafter.com/privacy-policy">
+                    Privacy Policy
+                  </Link>
                 </li>
                 <li>
                   <Link href="/refund-policy">Refund Policy</Link>
@@ -351,7 +355,7 @@ export default function Layout({ data, isLoading, children }, props) {
               <strong className="footer-heading">Support</strong>
               <ul className="footer-ul">
                 <li>
-                  <Link href="/contact">Contact</Link>
+                  <Link href="https://www.edafter.com/contact">Contact</Link>
                 </li>
                 <li>
                   <Button variant="contained" onClick={handleClickOpen}>
@@ -361,8 +365,8 @@ export default function Layout({ data, isLoading, children }, props) {
               </ul>
             </Grid>
             <div className="footer">
-              &copy; {new Date().getFullYear()}, GeM Portal Course and the
-              respective content owners.
+              &copy; {new Date().getFullYear()}, GeM Portal Course All rights
+              reserved.
             </div>
           </Grid>
         </Box>

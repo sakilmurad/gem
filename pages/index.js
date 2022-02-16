@@ -87,6 +87,41 @@ const Home = () => {
           name="description"
           content="Briefly explanation about GeM Bids, Catalogue creation, and all workflow on GeM - Government e-Marketplace"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "Product",
+              name: "GeM Portal Course",
+              image:
+                "https://res.cloudinary.com/dl3tfsbn5/image/upload/v1643303380/new_full_logo_with_white_back_kmrxta.png",
+              description:
+                "Briefly explanation about GeM Bids, Catalogue creation, and all workflow on GeM",
+              brand: {
+                "@type": "Brand",
+                name: "Edafter",
+              },
+              sku: "GPC",
+              offers: {
+                "@type": "Offer",
+                url: "https://gpc.edafter.com",
+                priceCurrency: "INR",
+                price: "999",
+                priceValidUntil: "2023-03-31",
+                availability: "https://schema.org/OnlineOnly",
+                itemCondition: "https://schema.org/NewCondition",
+              },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                bestRating: "5",
+                worstRating: "1",
+                ratingCount: "95",
+              },
+            }),
+          }}
+        />
       </Head>
       <Grid
         container
