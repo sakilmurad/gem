@@ -4,10 +4,6 @@ let data = JSON.parse(fs.readFileSync("src/data.json", "utf-8"));
 
 const defaultPages = `
 <url>
-<loc>${domain}</loc>
-<lastmod>2022-01-24T17:48:29.837Z</lastmod>
-</url>
-<url>
 <loc>${domain}/login</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>

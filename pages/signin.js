@@ -240,7 +240,9 @@ function Signin() {
               </Grid>
               <Grid item xs={12}>
                 By clicking Sign Up, you are agreed to{" "}
-                <Link href="/terms-and-conditions">Terms and Conditions</Link>
+                <Link href="https://www.edafter.com/terms-and-conditions">
+                  Terms and Conditions
+                </Link>
               </Grid>
             </Grid>
             <Button
