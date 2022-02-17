@@ -2,11 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>https://gpc.edafter.com/about-us</loc>
-<lastmod>2022-01-24T17:48:29.837Z</lastmod>
-</url>
-<url>
-<loc>https://gpc.edafter.com/contact</loc>
+<loc>https://gpc.edafter.com</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 <url>
@@ -14,11 +10,27 @@
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 <url>
-<loc>https://gpc.edafter.com/make-in-india</loc>
+<loc>https://gpc.edafter.com/signin</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 <url>
-<loc>https://gpc.edafter.com/signin</loc>
+<loc>https://gpc.edafter.com/pricing</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>https://gpc.edafter.com/refund-policy</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>https://gpc.edafter.com/tools/make-in-india</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>https://gpc.edafter.com/tools/reseller-authority-letter</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
+<url>
+<loc>https://gpc.edafter.com/tools/bidder-financial-standing</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 
