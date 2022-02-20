@@ -23,6 +23,7 @@ import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import YouTube from "../src/Youtube";
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -79,6 +80,16 @@ const Home = () => {
     setOpen(true);
   };
 
+  const opts = {
+    height: "390",
+    width: "640",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+  const onReady = (event) => {
+    event.target.pauseVideo();
+  };
   return (
     <>
       <Head>
@@ -193,6 +204,7 @@ const Home = () => {
               and made mandatory by Ministry of Finance by adding a new Rule No.
               149 in the General Financial Rules, 2017.
             </p>
+            <YouTube embedId="6auppyF-KZ8" />
             <h2 id="gem-portal-vision">
               <span>GeM Portal Vision</span>
               <Tooltip title={`Copy link to this section: GeM Portal Vision`}>
