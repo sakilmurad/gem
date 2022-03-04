@@ -96,24 +96,7 @@ const Home = () => {
         <title>What is GeM - Government e-Marketplace</title>
         <meta
           name="description"
-          content="Briefly explanation about GeM Bids, Catalogue creation, and all workflow on GeM - Government e-Marketplace"
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Course",
-              name: "GeM Portal Course",
-              description:
-                "Learn everything of GeM (Government e-Marketplace) Portal for free with GeM Portal Course.",
-              provider: {
-                "@type": "Organization",
-                name: "Edafter",
-                sameAs: "https://gpc.edafter.com",
-              },
-            }),
-          }}
+          content="Learn everything about GeM (Government e-Marketplace) online for free on Edafter's GeM Portal Course."
         />
       </Head>
       <Grid

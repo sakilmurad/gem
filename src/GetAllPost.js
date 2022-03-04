@@ -6,7 +6,7 @@ const files = fs.readdirSync(dir);
 let filesArray = [
   {
     title: "What is GeM",
-    slug: "/what-is-gem",
+    slug: "what-is-gem",
     created: "2021-12-10T17:48:29.837Z",
   },
 ];

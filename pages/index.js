@@ -20,6 +20,23 @@ function Free() {
           name="description"
           content="Edafter offers a free GeM (Government e-Marketplace) course, where you will learn bidding, uploading catalogue and managing your account on GeM Portal."
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Course",
+              name: "GeM Portal Course",
+              description:
+                "Learn everything of GeM (Government e-Marketplace) Portal for free with GeM Portal Course.",
+              provider: {
+                "@type": "Organization",
+                name: "Edafter",
+                sameAs: "https://gpc.edafter.com",
+              },
+            }),
+          }}
+        />
       </Head>
       <Box sx={{ flexGrow: 1, p: 2 }}>
         <Grid container spacing={2}>
@@ -44,9 +61,11 @@ function Free() {
                 size="large"
               />
             </Stack>
-            <Button variant="contained" href="what-is-gem" sx={{ mt: 2 }}>
-              Get Started
-            </Button>
+            <Link href="what-is-gem" passHref>
+              <Button variant="contained" href="what-is-gem" sx={{ mt: 2 }}>
+                Get Started
+              </Button>
+            </Link>
           </Grid>
           <Grid xs={12} md={5}>
             <Image
@@ -54,15 +73,16 @@ function Free() {
               width={100}
               height={100}
               layout="responsive"
+              alt="business logo"
             />
           </Grid>
         </Grid>
         <h2 className="center">Why GeM Portal</h2>
         <p>
           GeM has became very popular in the last 4 years. Government of India
-          has made the entry, "32. Development, operation and maintenance of
-          National Public Procurement Portal—Government e Marketplace". The
-          purchases through GeM by Government users have been authorized and
+          has made the entry, &quot;32. Development, operation and maintenance
+          of National Public Procurement Portal—Government e Marketplace&quot;.
+          The purchases through GeM by Government users have been authorized and
           made mandatory by Ministry of Finance by adding a new Rule No. 149 in
           the General Financial Rules, 2017.
         </p>
@@ -111,6 +131,39 @@ function Free() {
           written and video version available for the course so you can get
           started with your choice and become an expert of GeM Portal and grow
           your business in government sectors.
+        </p>
+        <h3>Everything is Online</h3>
+        <p>
+          We are making everything online. Means you do not need to connect a
+          person who teach you. We build everything on the web. Read in the
+          suitable language and bookmark for future.
+        </p>
+        <h3>Everything is for Free</h3>
+        <p>
+          Free means Free. There is no hidden charges to be paid by you to
+          starting the training.
+        </p>
+        <h3>Support</h3>
+        <p>
+          We have paid support team who are very sharp in the field. They will
+          really give a boost in your training.
+        </p>
+        <Button
+          variant="contained"
+          href="https://www.edafter.com/contact"
+          target="_blank"
+        >
+          Contact
+        </Button>
+        <h2 className="center">Free tools for GeM</h2>
+        <p>
+          We offers too many <b>free document creator tools for GeM</b>. You can
+          use them to start your journey on the GeM Portal without being
+          rejected due to document error.
+        </p>
+        <p>
+          These document creator tools will really give an edge in your bid
+          documents and will save your much time for repeating work.
         </p>
       </Box>
     </div>

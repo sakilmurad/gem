@@ -365,8 +365,8 @@ export default function Layout({ data, isLoading, children }, props) {
               </ul>
             </Grid>
             <div className="footer">
-              &copy; {new Date().getFullYear()}, GeM Portal Course All rights
-              reserved.
+              &copy; {new Date().getFullYear()},{" "}
+              <a href="https://www.edafter.com">Edafter</a> All rights reserved.
             </div>
           </Grid>
         </Box>
