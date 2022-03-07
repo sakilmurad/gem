@@ -14,7 +14,7 @@ function Free() {
       <Head>
         <title>
           GeM Portal Course | Free GeM Portal Training | GeM (Government
-          e-Marketplace) Training - Edafter
+          e-Marketplace)
         </title>
         <meta
           name="description"
