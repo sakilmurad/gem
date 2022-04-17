@@ -309,18 +309,15 @@ export default function Layout({ data, isLoading, children }, props) {
               <strong className="footer-heading">Information</strong>
               <ul className="footer-ul">
                 <li>
-                  <Link href="https://www.edafter.com/about">About us</Link>
-                </li>
-                <li>
                   <Link href="/pricing">Pricing</Link>
                 </li>
                 <li>
-                  <Link href="https://www.edafter.com/terms-and-conditions">
+                  <Link href="https://www.edafter.com/p/terms-and-conditions.html">
                     Terms and Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.edafter.com/privacy-policy">
+                  <Link href="https://www.edafter.com/p/privacy-policy.html">
                     Privacy Policy
                   </Link>
                 </li>
@@ -336,7 +333,7 @@ export default function Layout({ data, isLoading, children }, props) {
               <ul className="footer-ul">
                 <li>
                   <Link href="/tools/make-in-india">
-                    (Make in India) MII Certificate
+                    Make in India Certificate
                   </Link>
                 </li>
                 <li>
@@ -355,7 +352,7 @@ export default function Layout({ data, isLoading, children }, props) {
               <strong className="footer-heading">Support</strong>
               <ul className="footer-ul">
                 <li>
-                  <Link href="https://www.edafter.com/contact">Contact</Link>
+                  <Link href="/contact">Contact</Link>
                 </li>
                 <li>
                   <Button variant="contained" onClick={handleClickOpen}>
