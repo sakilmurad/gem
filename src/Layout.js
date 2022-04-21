@@ -309,9 +309,6 @@ export default function Layout({ data, isLoading, children }, props) {
               <strong className="footer-heading">Information</strong>
               <ul className="footer-ul">
                 <li>
-                  <Link href="/pricing">Pricing</Link>
-                </li>
-                <li>
                   <Link href="https://www.edafter.com/p/terms-and-conditions.html">
                     Terms and Conditions
                   </Link>
@@ -345,6 +342,9 @@ export default function Layout({ data, isLoading, children }, props) {
                   <Link href="/tools/bidder-financial-standing">
                     Bidder Financial Standing
                   </Link>
+                </li>
+                <li>
+                  <Link href="/tools">See All Tools</Link>
                 </li>
               </ul>
             </Grid>

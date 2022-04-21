@@ -25,6 +25,7 @@ import Notes from "../src/Notes";
 import img from "../src/img";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useRouter } from "next/router";
+import YouTube from "../src/Youtube";
 const components = {
   Button,
   Link,
@@ -34,6 +35,7 @@ const components = {
   h2: H2,
   h3: H3,
   Notes,
+  YouTube,
 };
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];

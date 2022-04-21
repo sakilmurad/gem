@@ -581,8 +581,8 @@ async function subscribe(req, res) {
     try {
       await sendgrid.send({
         to: `${req.body.email}`, // Your email where you'll receive emails
-        from: "Edafter<info@edafter.com>", // your website email address here
-        replyTo: "edafter2022@gmail.com",
+        from: process.env.SENDER_MAIL, // your website email address here
+        replyTo: process.env.ADMIN_EMAIL,
         subject: "Welcome! Thanks for Subscribe",
         html: emailHtml,
       });

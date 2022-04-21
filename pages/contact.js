@@ -25,6 +25,7 @@ const insertData = async (name, email, phone, message) => {
 
   try {
     await addDoc(collection(db, "contact"), data);
+    return;
   } catch (e) {
     console.log(e);
   }

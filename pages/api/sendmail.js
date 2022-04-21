@@ -179,9 +179,9 @@ async function sendEmail(req, res) {
   try {
     await sendgrid.send({
       to: `${req.body.email}`, // Your email where you'll receive emails
-      from: "GeM Portal Course<info@edafter.com>", // your website email address here
-      replyTo: "edafter2022@gmail.com",
-      subject: "Thanks for contact GeM Portal Course",
+      from: process.env.SENDER_MAIL, // your website email address here
+      replyTo: process.env.ADMIN_EMAIL,
+      subject: "Thanks for contact Edafter",
       html: EmailBody,
     });
   } catch (error) {
@@ -191,8 +191,8 @@ async function sendEmail(req, res) {
 
   try {
     sendgrid.send({
-      to: "sakilmurad52@gmail.com", // Your email where you'll receive emails
-      from: "GeM Portal Course<info@edafter.com>", // your website email address here
+      to: process.env.ADMIN_EMAIL,
+      from: process.env.SENDER_MAIL, // your website email address here
       subject: `New contact message from ${req.body.name}`,
       text: `
         Name: ${req.body.name},

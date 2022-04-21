@@ -50,6 +50,10 @@ export default class MyDocument extends Document {
             property="og:image"
             content="https://gpc.edafter.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdl3tfsbn5%2Fimage%2Fupload%2Fv1643042307%2Fnew_logo_with_white_back_dw9i9l.svg&w=48&q=75"
           />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&display=swap"
+          />
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>

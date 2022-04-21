@@ -62,8 +62,13 @@ function Free() {
               />
             </Stack>
             <Link href="what-is-gem" passHref>
-              <Button variant="contained" href="what-is-gem" sx={{ mt: 2 }}>
+              <Button variant="contained" href="what-is-gem" sx={{ m: 2 }}>
                 Get Started
+              </Button>
+            </Link>
+            <Link href="/service" passHref>
+              <Button variant="contained" color="secondary" sx={{ m: 2 }}>
+                Explore Services
               </Button>
             </Link>
           </Grid>
@@ -148,13 +153,11 @@ function Free() {
           We have paid support team who are very sharp in the field. They will
           really give a boost in your training.
         </p>
-        <Button
-          variant="contained"
-          href="https://www.edafter.com/contact"
-          target="_blank"
-        >
-          Contact
-        </Button>
+        <Link href="/contact" passHref>
+          <Button variant="contained" href="/contact">
+            Contact
+          </Button>
+        </Link>
         <h2 className="center">Free tools for GeM</h2>
         <p>
           We offers too many <b>free document creator tools for GeM</b>. You can
@@ -165,6 +168,11 @@ function Free() {
           These document creator tools will really give an edge in your bid
           documents and will save your much time for repeating work.
         </p>
+        <Link href="/tools" passHref>
+          <Button variant="contained" sx={{ mt: 2 }}>
+            Free Tools
+          </Button>
+        </Link>
       </Box>
     </div>
   );
