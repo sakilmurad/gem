@@ -18,6 +18,7 @@ import Snackbar from "@mui/material/Snackbar";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Head from "next/head";
+import Ads from "../src/Ads";
 
 export default function Service() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -83,16 +84,7 @@ export default function Service() {
               </MenuItem>
             </Select>
           </FormControl>
-          <ins
-            className="adsbygoogle"
-            style={{ display: "block" }}
-            data-ad-client="ca-pub-3232980416145906"
-            data-ad-slot="4338102581"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          >
-            Advertisement
-          </ins>
+          <Ads />
         </Box>
       ),
     },

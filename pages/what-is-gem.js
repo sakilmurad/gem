@@ -24,6 +24,7 @@ import IconButton from "@mui/material/IconButton";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import YouTube from "../src/Youtube";
+import Ads from "../src/Ads";
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -150,16 +151,7 @@ const Home = () => {
               online portal for procurement of goods and services by government,
               created by Prime Minister.
             </p>
-            <ins
-              className="adsbygoogle"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-3232980416145906"
-              data-ad-slot="4338102581"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            >
-              Advertisement
-            </ins>
+            <Ads />
             <p>
               Government of India (Allocation of Business) Rules, 1961, vide{" "}
               <a
@@ -407,16 +399,7 @@ const Home = () => {
             >
               <Button variant="text">Source {<LaunchIcon />}</Button>
             </a>
-            <ins
-              className="adsbygoogle"
-              style={{ display: "block" }}
-              data-ad-client="ca-pub-3232980416145906"
-              data-ad-slot="4338102581"
-              data-ad-format="auto"
-              data-full-width-responsive="true"
-            >
-              Advertisement
-            </ins>
+            <Ads />
             <h2 id="key-stakeholders-of-gem">
               <span>Key Stakeholders of GeM</span>
               <Tooltip
@@ -465,7 +448,6 @@ const Home = () => {
               <li>State PSUs</li>
               <li>Autonomous Bodies</li>
             </ul>
-
             <h3 id="sellers">
               <span>Sellers</span>
               <Tooltip title={`Copy link to this section: Sellers`}>
@@ -484,7 +466,6 @@ const Home = () => {
               <li>Authorized Resellers</li>
               <li>Service Providers</li>
             </ul>
-
             <h3 id="external-government">
               <span>External Government</span>
               <Tooltip title={`Copy link to this section: External Government`}>
@@ -503,7 +484,6 @@ const Home = () => {
               <li>MCA 21</li>
               <li>PAN Database</li>
             </ul>
-
             <h3 id="inspection-system">
               <span>Inspection System</span>
               <Tooltip title={`Copy link to this section: Inspection System`}>
@@ -521,7 +501,6 @@ const Home = () => {
               <li>CGDA</li>
               <li>RTI</li>
             </ul>
-
             <h3 id="partners">
               <span>Partners</span>
               <Tooltip title={`Copy link to this section: Partners`}>
@@ -541,16 +520,7 @@ const Home = () => {
             </ul>
           </Paper>
         </Grid>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client="ca-pub-3232980416145906"
-          data-ad-slot="4338102581"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        >
-          Advertisement
-        </ins>
+        <Ads />
       </Grid>
     </>
   );

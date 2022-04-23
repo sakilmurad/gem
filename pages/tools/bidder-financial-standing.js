@@ -8,7 +8,7 @@ import ReactToPrint from "react-to-print";
 import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
-
+import Ads from "../../src/Ads";
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, "/");
 
 function Bfs() {
@@ -52,16 +52,7 @@ function Bfs() {
       <h1 className="center">
         Bidder Financial Standing Letter Generator for GeM
       </h1>
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-3232980416145906"
-        data-ad-slot="4338102581"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      >
-        Advertisement
-      </ins>
+      <Ads />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -138,6 +129,7 @@ function Bfs() {
           For <b>{companyName}</b>.
         </Box>
       </Box>
+      <Ads />
     </div>
   );
 }

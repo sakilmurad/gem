@@ -21,7 +21,9 @@ const removeAds = () => {
   var ads = document.getElementsByClassName("adsbygoogle");
   if (ads.length > 0) {
     for (var i = 0; i < ads.length; i++) {
-      ads[i].innerHTML = "";
+      ads[i].removeAttribute("style");
+      ads[i].removeAttribute("data-adsbygoogle-status");
+      ads[i].removeAttribute("data-ad-status");
     }
   }
   return;

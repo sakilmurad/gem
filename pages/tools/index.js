@@ -11,6 +11,7 @@ import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import Avatar from "@mui/material/Avatar";
 import Head from "next/head";
 import Link from "next/link";
+import Ads from "../../src/Ads";
 function Ft() {
   return (
     <Container className="main-margin">
@@ -21,16 +22,7 @@ function Ft() {
           content="All the Free Tools provided by Edafter."
         />
       </Head>
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-3232980416145906"
-        data-ad-slot="4338102581"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      >
-        Advertisement
-      </ins>
+      <Ads />
       <h1 className="heading center-text">Free tools for GeM</h1>
 
       <p className="intro-text">
@@ -153,16 +145,7 @@ function Ft() {
             </Paper>
           </Grid>
         </Grid>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client="ca-pub-3232980416145906"
-          data-ad-slot="4338102581"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        >
-          Advertisement
-        </ins>
+        <Ads />
       </Box>
     </Container>
   );
