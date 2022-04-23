@@ -17,18 +17,23 @@ const data = require("../src/data.json");
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
+const removeAds = () => {
+  var ads = document.getElementsByClassName("adsbygoogle");
+  if (ads.length > 0) {
+    for (var i = 0; i < ads.length; i++) {
+      ads[i].innerHTML = "";
+    }
+  }
+  return;
+};
 // show ads function
 const ShowAdsense = () => {
-  console.log("start");
+  removeAds();
   var ads = document.getElementsByClassName("adsbygoogle").length;
   for (var i = 0; i < ads; i++) {
     try {
       (adsbygoogle = window.adsbygoogle || []).push({});
-      console.log("success");
-    } catch (e) {
-      console.log("error");
-    }
-    console.log("end");
+    } catch (e) {}
   }
 };
 

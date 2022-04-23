@@ -25,11 +25,11 @@ function Ft() {
         className="adsbygoogle"
         style={{ display: "block" }}
         data-ad-client="ca-pub-3232980416145906"
-        data-ad-slot="4254621341"
+        data-ad-slot="4338102581"
         data-ad-format="auto"
         data-full-width-responsive="true"
       >
-        Ad
+        Advertisement
       </ins>
       <h1 className="heading center-text">Free tools for GeM</h1>
 
@@ -153,6 +153,16 @@ function Ft() {
             </Paper>
           </Grid>
         </Grid>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3232980416145906"
+          data-ad-slot="4338102581"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        >
+          Advertisement
+        </ins>
       </Box>
     </Container>
   );

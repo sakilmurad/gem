@@ -150,6 +150,16 @@ const Home = () => {
               online portal for procurement of goods and services by government,
               created by Prime Minister.
             </p>
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-3232980416145906"
+              data-ad-slot="4338102581"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            >
+              Advertisement
+            </ins>
             <p>
               Government of India (Allocation of Business) Rules, 1961, vide{" "}
               <a
@@ -397,7 +407,16 @@ const Home = () => {
             >
               <Button variant="text">Source {<LaunchIcon />}</Button>
             </a>
-
+            <ins
+              className="adsbygoogle"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-3232980416145906"
+              data-ad-slot="4338102581"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            >
+              Advertisement
+            </ins>
             <h2 id="key-stakeholders-of-gem">
               <span>Key Stakeholders of GeM</span>
               <Tooltip
@@ -522,6 +541,16 @@ const Home = () => {
             </ul>
           </Paper>
         </Grid>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3232980416145906"
+          data-ad-slot="4338102581"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        >
+          Advertisement
+        </ins>
       </Grid>
     </>
   );

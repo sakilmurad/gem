@@ -64,6 +64,16 @@ function Reseller() {
       <h1 className="center">
         Reseller Authorization Letter Generator for GeM
       </h1>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4338102581"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      >
+        Advertisement
+      </ins>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
