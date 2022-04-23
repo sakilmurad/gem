@@ -21,9 +21,12 @@ const removeAds = () => {
   var ads = document.getElementsByClassName("adsbygoogle");
   if (ads.length > 0) {
     for (var i = 0; i < ads.length; i++) {
-      ads[i].removeAttribute("style");
-      ads[i].removeAttribute("data-adsbygoogle-status");
-      ads[i].removeAttribute("data-ad-status");
+      ads[i].innerHTML = "";
+      if (ads[i].hasAttribute("data-adsbygoogle-status")) {
+        ads[i].removeAttribute("style");
+        ads[i].removeAttribute("data-adsbygoogle-status");
+        ads[i].removeAttribute("data-ad-status");
+      }
     }
   }
   return;
