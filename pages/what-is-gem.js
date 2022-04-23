@@ -519,8 +519,8 @@ const Home = () => {
               <li>Other Commercial Agencies</li>
             </ul>
           </Paper>
+          <Ads />
         </Grid>
-        <Ads />
       </Grid>
     </>
   );

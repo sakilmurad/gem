@@ -17,23 +17,45 @@ const data = require("../src/data.json");
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-const removeAds = () => {
-  var ads = document.getElementsByClassName("adsbygoogle");
-  if (ads.length > 0) {
-    for (var i = 0; i < ads.length; i++) {
-      ads[i].innerHTML = "";
-      if (ads[i].hasAttribute("data-adsbygoogle-status")) {
-        ads[i].removeAttribute("style");
-        ads[i].removeAttribute("data-adsbygoogle-status");
-        ads[i].removeAttribute("data-ad-status");
-      }
+// const removeAds = () => {
+//   var ads = document.getElementsByClassName("adsbygoogle");
+//   if (ads.length > 0) {
+//     for (var i = 0; i < ads.length; i++) {
+//       ads[i].innerHTML = "";
+//       if (ads[i].hasAttribute("data-adsbygoogle-status")) {
+//         ads[i].removeAttribute("style");
+//         ads[i].removeAttribute("data-adsbygoogle-status");
+//         ads[i].removeAttribute("data-ad-status");
+//       }
+//     }
+//   }
+//   return;
+// };
+
+// insert ads tag
+
+const InitializeAdsense = () => {
+  let adsContainer = document.getElementsByClassName("ads-div");
+  if (adsContainer.length > 0) {
+    for (var i = 0; i < adsContainer.length; i++) {
+      adsContainer[i].innerHTML = `<ins
+      className="adsbygoogle"
+      style={{ display: "block" }}
+      data-ad-client="ca-pub-3232980416145906"
+      data-ad-slot="4338102581"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    >
+      Advertisement
+    </ins>`;
     }
   }
-  return;
 };
+
 // show ads function
 const ShowAdsense = () => {
-  removeAds();
+  // removeAds();
+  InitializeAdsense();
   var ads = document.getElementsByClassName("adsbygoogle").length;
   for (var i = 0; i < ads; i++) {
     try {
