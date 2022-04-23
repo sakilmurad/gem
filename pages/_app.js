@@ -17,6 +17,21 @@ const data = require("../src/data.json");
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
+// show ads function
+const ShowAdsense = () => {
+  console.log("start");
+  var ads = document.getElementsByClassName("adsbygoogle").length;
+  for (var i = 0; i < ads; i++) {
+    try {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      console.log("success");
+    } catch (e) {
+      console.log("error");
+    }
+    console.log("end");
+  }
+};
+
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   const [isLoading, setLoading] = useState(false);
@@ -29,6 +44,7 @@ export default function MyApp(props) {
   useEffect(() => {
     const handleRouteChange = (url) => {
       setLoading(false);
+      ShowAdsense();
       ga.pageview(url);
     };
     //When the component is mounted, subscribe to router changes

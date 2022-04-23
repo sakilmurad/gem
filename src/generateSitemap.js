@@ -12,7 +12,7 @@ const defaultPages = `
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 <url>
-<loc>${domain}/pricing</loc>
+<loc>${domain}/tools</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
 <url>

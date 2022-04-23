@@ -117,6 +117,18 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
       </Head>
 
       <div>
+        <Grid container spacing={2}>
+          <ins
+            className="adsbygoogle"
+            style={{ display: "block" }}
+            data-ad-client="ca-pub-3232980416145906"
+            data-ad-slot="4254621341"
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+          >
+            Ad
+          </ins>
+        </Grid>
         <Grid
           container
           spacing={2}
@@ -180,6 +192,16 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
             </Paper>
           </Grid>
         </Grid>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3232980416145906"
+          data-ad-slot="4338102581"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        >
+          Advertismenet
+        </ins>
         <Snackbar
           open={opensnackbar}
           autoHideDuration={4000}

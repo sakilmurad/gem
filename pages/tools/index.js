@@ -21,6 +21,16 @@ function Ft() {
           content="All the Free Tools provided by Edafter."
         />
       </Head>
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      >
+        Ad
+      </ins>
       <h1 className="heading center-text">Free tools for GeM</h1>
 
       <p className="intro-text">
@@ -60,6 +70,7 @@ function Ft() {
               </div>
             </Paper>
           </Grid>
+
           <Grid item xs={12} md={6}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <Box className="flex-center">
