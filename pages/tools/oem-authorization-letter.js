@@ -9,14 +9,10 @@ import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
 import Ads from "../../src/Ads";
-function Reseller() {
+function OEM() {
   const [CompanyName, setCompanyName] = useState("XYZ Pvt Ltd");
-  const [ResellerName, setresellerName] = useState(
-    "ABC Pvt Ltd, Nangloi, New Delhi 110041"
-  );
   const [BrandName, setBrandName] = useState("Edafter");
   const [BidNumber, setBidNumber] = useState();
-  const [Validity, setvalidity] = useState("31-03-2023");
   const [margingTop, setMarginTop] = useState(0);
 
   const handleChange = (e) => {
@@ -26,17 +22,11 @@ function Reseller() {
       case "companyname":
         setCompanyName(value);
         return;
-      case "resellername":
-        setresellerName(value);
-        return;
       case "brandname":
         setBrandName(value);
         return;
       case "BidNumber":
         setBidNumber(value);
-        return;
-      case "date":
-        setvalidity(value);
         return;
     }
   };
@@ -54,16 +44,14 @@ function Reseller() {
     <div>
       <Head>
         <title>
-          Reseller Authorization Letter Generator for GeM - GeM Portal Course
+          OEM Authorization Letter Generator for GeM - GeM Portal Course
         </title>
         <meta
           name="description"
-          content="Reseller authorization letter creator for a bidding on GeM Portal. Authority letter generator for reseller on GeM Portal."
+          content="OEM authorization letter creator for a bidding on GeM Portal. Authority letter generator for OEM on GeM Portal."
         />
       </Head>
-      <h1 className="center">
-        Reseller Authorization Letter Generator for GeM
-      </h1>
+      <h1 className="center">OEM Authorization Letter Generator for GeM</h1>
       <Ads />
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -76,17 +64,8 @@ function Reseller() {
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-            fullWidth
-            required
-            id="resellername"
-            label="Reseller Name"
-            name="resellername"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
+
+        <Grid item xs={12} sm={3}>
           <TextField
             fullWidth
             required
@@ -96,22 +75,13 @@ function Reseller() {
             onChange={handleChange}
           />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={3}>
           <TextField
             fullWidth
             required
             id="BidNumber"
             label="GeM Bid/RA Number"
             name="BidNumber"
-            onChange={handleChange}
-          />
-        </Grid>
-        <Grid item xs={12} sm={4}>
-          <TextField
-            fullWidth
-            name="date"
-            label="Validity of Authorization"
-            id="date"
             onChange={handleChange}
           />
         </Grid>
@@ -169,18 +139,18 @@ function Reseller() {
           </Typography>
           <p>Dear Sir / Madam,</p>
           <Typography variant="body1" sx={{ textIndent: "70px" }}>
-            We would like to inform you that <strong>{ResellerName}</strong> is
-            our authorized distributor for our <strong>{BrandName}</strong>{" "}
-            range of single use products for the above mentioned tender.
+            We, <strong>{CompanyName}</strong>, are the established and reputed
+            Manufacturers of <strong>{BrandName}</strong> products to bid,
+            negotiate and conclude the contract with you for the above-mentioned
+            goods manufactured by us.
           </Typography>
           <Typography sx={{ textIndent: "70px" }}>
-            They are authorized to quote rates, collect supply orders, make
-            supplies, raise their own invoices and collect payments on our
-            behalf.
+            No company or firm or individual other than{" "}
+            <strong>{CompanyName}</strong> are authorized to bid, negotiate and
+            conclude the contract in regard to this business for your
+            institution.
           </Typography>
-          <p>
-            <strong>The Authorization is Valid till {Validity}.</strong>
-          </p>
+          <br />
           For <b>{CompanyName}</b>.
         </Box>
       </Box>
@@ -189,4 +159,4 @@ function Reseller() {
   );
 }
 
-export default Reseller;
+export default OEM;

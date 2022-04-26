@@ -3,15 +3,13 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
-import ConnectWithoutContactRoundedIcon from "@mui/icons-material/ConnectWithoutContactRounded";
-import PriceCheckRoundedIcon from "@mui/icons-material/PriceCheckRounded";
 import Button from "@mui/material/Button";
 import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import Avatar from "@mui/material/Avatar";
 import Head from "next/head";
 import Link from "next/link";
 import Ads from "../../src/Ads";
+import tools from "../../src/tools";
 function Ft() {
   return (
     <Container className="main-margin">
@@ -31,97 +29,30 @@ function Ft() {
       </p>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <Box className="flex-center">
-                <Avatar
-                  sx={{
-                    p: 3,
-                    bgcolor: "primary.main",
-                  }}
-                >
-                  <MapsHomeWorkRoundedIcon fontSize="large" />
-                </Avatar>
-              </Box>
-              <h2 className="center-text">Make In India Certificate</h2>
-              <p>
-                Make in India Certificate required to participate in the bids as
-                local supplier. It is mandatory to participate as local supplier
-                in some bids. Therefore you have to make an{" "}
-                <b>Make In India Certificate</b> to avail make in india
-                preference in the bids.
-              </p>
-              <div className="flex-center">
-                <Link
-                  href="/tools/make-in-india"
-                  title="Make in India certificate generator"
-                  passHref
-                >
-                  <Button variant="contained">GENERATE NOW</Button>
-                </Link>
-              </div>
-            </Paper>
-          </Grid>
+          {tools.map((e) => (
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Box className="flex-center">
+                  <Avatar
+                    sx={{
+                      p: 3,
+                      bgcolor: "primary.main",
+                    }}
+                  >
+                    {e.icon}
+                  </Avatar>
+                </Box>
+                <h2 className="center-text">{e.title}</h2>
+                <p>{e.description}</p>
+                <div className="flex-center">
+                  <Link href={e.link} title={e.title} passHref>
+                    <Button variant="contained">GENERATE NOW</Button>
+                  </Link>
+                </div>
+              </Paper>
+            </Grid>
+          ))}
 
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <Box className="flex-center">
-                <Avatar
-                  sx={{
-                    p: 3,
-                    bgcolor: "primary.main",
-                  }}
-                >
-                  <ConnectWithoutContactRoundedIcon fontSize="large" />
-                </Avatar>
-              </Box>
-              <h2 className="center-text">Reseller Authority Letter</h2>
-              <p>
-                You authorized a reseller but how GeM will know that you
-                actually authorized him?. Therefore OEM (Original Equipment
-                Manufacturer) needs to write a letter to GeM mentioning the
-                reseller name and address. You can also mention bid number.
-              </p>
-              <div className="flex-center">
-                <Link
-                  href="/tools/reseller-authority-letter"
-                  title="Reseller authority letter generator"
-                  passHref
-                >
-                  <Button variant="contained">GENERATE NOW</Button>
-                </Link>
-              </div>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <Box className="flex-center">
-                <Avatar
-                  sx={{
-                    p: 3,
-                    bgcolor: "primary.main",
-                  }}
-                >
-                  <PriceCheckRoundedIcon fontSize="large" />
-                </Avatar>
-              </Box>
-              <h2 className="center-text">Bidder Financial Standing</h2>
-              <p>
-                Sometimes buyer asks for your undertaking about you are not
-                under liquidation or bankrupt. There is already format ready for
-                you. Go and try it.
-              </p>
-              <div className="flex-center">
-                <Link
-                  href="/tools/bidder-financial-standing"
-                  title="Bidder financial standing certificate generator"
-                  passHref
-                >
-                  <Button variant="contained">GENERATE NOW</Button>
-                </Link>
-              </div>
-            </Paper>
-          </Grid>
           <Grid item xs={12} md={6}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <Box className="flex-center">
