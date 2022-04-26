@@ -31,6 +31,10 @@ const defaultPages = `
 <loc>${domain}/tools/bidder-financial-standing</loc>
 <lastmod>2022-01-24T17:48:29.837Z</lastmod>
 </url>
+<url>
+<loc>${domain}/tools/oem-authorization-letter</loc>
+<lastmod>2022-01-24T17:48:29.837Z</lastmod>
+</url>
 `;
 
 const generatedData = data

@@ -30,7 +30,7 @@ function Ft() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {tools.map((e) => (
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} key={e.title}>
               <Paper elevation={3} sx={{ p: 2 }}>
                 <Box className="flex-center">
                   <Avatar
