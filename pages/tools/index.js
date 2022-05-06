@@ -21,7 +21,17 @@ function Ft() {
           content="All the Free Tools provided by Edafter."
         />
       </Head>
-      <h1 className="heading center-text">Free tools for GeM</h1>
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+
+      <h1 className="heading center-text mt2">Free tools for GeM</h1>
 
       <p className="intro-text">
         Try using these free tools available on Edafter. It will really increase
@@ -32,15 +42,6 @@ function Ft() {
         text="All the Free Tools provided by Edafter"
         url="tools"
       />
-      {/* <!-- horizontal ad for gpc --> */}
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-3232980416145906"
-        data-ad-slot="4254621341"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
 
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>

@@ -14,6 +14,9 @@ a {
   font-size: 1.3rem;
 }
 
+.mt2 {
+  margin-top: 5px;
+}
 main a {
   color: rgb(113, 113, 230);
 }

@@ -49,14 +49,6 @@ function Bfs() {
           content="Bidder financial letter creator for a bidding on GeM Portal. Bankruptancy undertaking generator for reseller on GeM Portal."
         />
       </Head>
-      <h1 className="center">
-        Bidder Financial Standing Letter Generator for GeM
-      </h1>
-      <Share
-        title="Bidder Financial Standing Letter Generator for GeM"
-        text="All the Free Tools provided by Edafter"
-        url="tools/bidder-financial-standing"
-      />
       {/* <!-- horizontal ad for gpc --> */}
       <ins
         className="adsbygoogle"
@@ -66,6 +58,16 @@ function Bfs() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
+
+      <h1 className="center mt2">
+        Bidder Financial Standing Letter Generator for GeM
+      </h1>
+      <Share
+        title="Bidder Financial Standing Letter Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/bidder-financial-standing"
+      />
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

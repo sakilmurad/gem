@@ -51,12 +51,6 @@ function OEM() {
           content="OEM authorization letter creator for a bidding on GeM Portal. Authority letter generator for OEM on GeM Portal."
         />
       </Head>
-      <h1 className="center">OEM Authorization Letter Generator for GeM</h1>
-      <Share
-        title="OEM Authorization Letter Generator for GeM"
-        text="All the Free Tools provided by Edafter"
-        url="tools/oem-authorization-letter"
-      />
       {/* <!-- horizontal ad for gpc --> */}
       <ins
         className="adsbygoogle"
@@ -66,6 +60,14 @@ function OEM() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
+
+      <h1 className="center mt2">OEM Authorization Letter Generator for GeM</h1>
+      <Share
+        title="OEM Authorization Letter Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/oem-authorization-letter"
+      />
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

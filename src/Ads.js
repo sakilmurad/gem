@@ -9,9 +9,7 @@ function Ads() {
       data-ad-slot="4338102581"
       data-ad-format="auto"
       data-full-width-responsive="true"
-    >
-      Advertisement
-    </ins>
+    ></ins>
   );
 }
 

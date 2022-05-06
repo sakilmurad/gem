@@ -57,14 +57,6 @@ function MII() {
           content="Make in India (MII) certificate generator for online bidding as local supplier on GeM Portal."
         />
       </Head>
-      <h1 className="center">
-        Make In India (MII) Certificate Generator for GeM
-      </h1>
-      <Share
-        title="Make In India (MII) Certificate Generator for GeM"
-        text="All the Free Tools provided by Edafter"
-        url="tools/make-in-india"
-      />
       {/* <!-- horizontal ad for gpc --> */}
       <ins
         className="adsbygoogle"
@@ -74,6 +66,16 @@ function MII() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
+
+      <h1 className="center mt2">
+        Make In India (MII) Certificate Generator for GeM
+      </h1>
+      <Share
+        title="Make In India (MII) Certificate Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/make-in-india"
+      />
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

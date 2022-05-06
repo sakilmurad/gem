@@ -62,14 +62,6 @@ function Reseller() {
           content="Reseller authorization letter creator for a bidding on GeM Portal. Authority letter generator for reseller on GeM Portal."
         />
       </Head>
-      <h1 className="center">
-        Reseller Authorization Letter Generator for GeM
-      </h1>
-      <Share
-        title="Reseller Authorization Letter Generator for GeM"
-        text="All the Free Tools provided by Edafter"
-        url="tools/reseller-authority-letter"
-      />
       {/* <!-- horizontal ad for gpc --> */}
       <ins
         className="adsbygoogle"
@@ -79,6 +71,16 @@ function Reseller() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
+
+      <h1 className="center mt2">
+        Reseller Authorization Letter Generator for GeM
+      </h1>
+      <Share
+        title="Reseller Authorization Letter Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/reseller-authority-letter"
+      />
+
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField

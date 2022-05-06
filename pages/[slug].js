@@ -37,6 +37,7 @@ const components = {
   h3: H3,
   Notes,
   YouTube,
+  Ads,
 };
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
