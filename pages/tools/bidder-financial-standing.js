@@ -8,7 +8,7 @@ import ReactToPrint from "react-to-print";
 import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
-import Ads from "../../src/Ads";
+import Share from "../../src/Share";
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, "/");
 
 function Bfs() {
@@ -52,7 +52,20 @@ function Bfs() {
       <h1 className="center">
         Bidder Financial Standing Letter Generator for GeM
       </h1>
-      <Ads />
+      <Share
+        title="Bidder Financial Standing Letter Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/bidder-financial-standing"
+      />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -129,7 +142,15 @@ function Bfs() {
           For <b>{companyName}</b>.
         </Box>
       </Box>
-      <Ads />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
   );
 }

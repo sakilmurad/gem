@@ -8,7 +8,7 @@ import ReactToPrint from "react-to-print";
 import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
-import Ads from "../../src/Ads";
+import Share from "../../src/Share";
 function OEM() {
   const [CompanyName, setCompanyName] = useState("XYZ Pvt Ltd");
   const [BrandName, setBrandName] = useState("Edafter");
@@ -52,7 +52,20 @@ function OEM() {
         />
       </Head>
       <h1 className="center">OEM Authorization Letter Generator for GeM</h1>
-      <Ads />
+      <Share
+        title="OEM Authorization Letter Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/oem-authorization-letter"
+      />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -154,7 +167,15 @@ function OEM() {
           For <b>{CompanyName}</b>.
         </Box>
       </Box>
-      <Ads />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
   );
 }

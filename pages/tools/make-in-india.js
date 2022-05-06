@@ -8,7 +8,7 @@ import ReactToPrint from "react-to-print";
 import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
-import Ads from "../../src/Ads";
+import Share from "../../src/Share";
 function MII() {
   const [companyName, setCompanyName] = useState("ABC Pvt Ltd");
   const [percentage, setPercentage] = useState("80");
@@ -60,7 +60,20 @@ function MII() {
       <h1 className="center">
         Make In India (MII) Certificate Generator for GeM
       </h1>
-      <Ads />
+      <Share
+        title="Make In India (MII) Certificate Generator for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools/make-in-india"
+      />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -186,7 +199,15 @@ function MII() {
           </Typography>
         </Box>
       </Box>
-      <Ads />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
     </div>
   );
 }

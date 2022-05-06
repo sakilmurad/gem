@@ -54,6 +54,10 @@ export default function MyApp(props) {
     };
   }, [router.events]);
 
+  useEffect(() => {
+    ShowAdsense();
+  }, []);
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>

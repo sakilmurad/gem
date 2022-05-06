@@ -8,8 +8,9 @@ import MoreTimeIcon from "@mui/icons-material/MoreTime";
 import Avatar from "@mui/material/Avatar";
 import Head from "next/head";
 import Link from "next/link";
-import Ads from "../../src/Ads";
 import tools from "../../src/tools";
+import Share from "../../src/Share";
+
 function Ft() {
   return (
     <Container className="main-margin">
@@ -20,13 +21,27 @@ function Ft() {
           content="All the Free Tools provided by Edafter."
         />
       </Head>
-      <Ads />
       <h1 className="heading center-text">Free tools for GeM</h1>
 
       <p className="intro-text">
         Try using these free tools available on Edafter. It will really increase
         your productivity.
       </p>
+      <Share
+        title="Free tools for GeM"
+        text="All the Free Tools provided by Edafter"
+        url="tools"
+      />
+      {/* <!-- horizontal ad for gpc --> */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3232980416145906"
+        data-ad-slot="4254621341"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {tools.map((e) => (
@@ -76,7 +91,15 @@ function Ft() {
             </Paper>
           </Grid>
         </Grid>
-        <Ads />
+        {/* <!-- horizontal ad for gpc --> */}
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-client="ca-pub-3232980416145906"
+          data-ad-slot="4254621341"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
       </Box>
     </Container>
   );
