@@ -63,7 +63,7 @@ const SavedContent = () => {
   );
 };
 
-function profile() {
+function Profile() {
   const [displayName, setDisplayName] = useState("User");
   const [picUrl, setDisplayUrl] = useState("");
   const [content, setContent] = useState(<Tools />);
@@ -158,4 +158,4 @@ function profile() {
   );
 }
 
-export default profile;
+export default Profile;
