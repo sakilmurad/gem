@@ -164,6 +164,10 @@ export default function Layout({ data, isLoading, children }, props) {
       });
   };
 
+  const gotoProfile = () => {
+    Router.push("/profile");
+    handleProfileMenuClose();
+  };
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -249,7 +253,7 @@ export default function Layout({ data, isLoading, children }, props) {
                 open={Boolean(anchorElProfileMenu)}
                 onClose={handleProfileMenuClose}
               >
-                {/* <MenuItem onClick={handleProfileMenuClose}>Profile</MenuItem> */}
+                <MenuItem onClick={gotoProfile}>Profile</MenuItem>
                 <MenuItem onClick={Signout}>Logout</MenuItem>
               </Menu>
             </div>

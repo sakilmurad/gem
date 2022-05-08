@@ -51,7 +51,7 @@ function Login() {
 
   onAuthStateChanged(authorization, (user) => {
     if (user) {
-      Router.push("/");
+      Router.push("/profile");
     }
   });
 
