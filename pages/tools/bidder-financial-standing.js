@@ -9,6 +9,7 @@ import PrintIcon from "@mui/icons-material/Print";
 import Button from "@mui/material/Button";
 import Slider from "@mui/material/Slider";
 import Share from "../../src/Share";
+
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, "/");
 
 function Bfs() {
@@ -123,15 +124,11 @@ function Bfs() {
         id="generated-content"
       >
         <Box>
-          <p style={{ textAlign: "left" }}>
+          <Typography sx={{ textAlign: "left", pt: margingTop }}>
             Ref No: {refNumber}
             <span style={{ float: "right" }}>{today}</span>
-          </p>
-          <Typography
-            sx={{ textAlign: "center", pt: margingTop }}
-            variant="h6"
-            component="div"
-          >
+          </Typography>
+          <Typography sx={{ textAlign: "center" }} variant="h6" component="div">
             <u>TO WHOM SOEVER IT MAY CONCERN</u>
           </Typography>
           <br />

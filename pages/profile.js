@@ -55,9 +55,27 @@ const Tools = () => {
 };
 
 const SavedContent = () => {
+  const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
   return (
     <>
       <h3 className="center-text">All your saved page</h3>
+      <ul>
+        {SavedPages.map((data) => {
+          return (
+            <li>
+              <Link href={data.url}>{data.title}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+};
+
+const DownloadSection = () => {
+  return (
+    <>
+      <h3 className="center-text">All files to download</h3>
       <p>Nothing here</p>
     </>
   );
@@ -92,6 +110,11 @@ function Profile() {
     setContent(<SavedContent />);
   };
 
+  const Download = (event) => {
+    handleListItemClick(event, 2);
+    setContent(<DownloadSection />);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Paper elevation={3}>
@@ -120,7 +143,7 @@ function Profile() {
                   size="small"
                   endIcon={<JoinFullIcon />}
                 >
-                  Join Pro
+                  Remove Ads
                 </Button>
               </Stack>
               <Divider />
@@ -143,6 +166,15 @@ function Profile() {
                     <FavoriteIcon />
                   </ListItemIcon>
                   <ListItemText primary="Saved" />
+                </ListItemButton>
+                <ListItemButton
+                  selected={selectedIndex === 2}
+                  onClick={(event) => Download(event)}
+                >
+                  <ListItemIcon>
+                    <FavoriteIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Download Section" />
                 </ListItemButton>
               </List>
             </Paper>
