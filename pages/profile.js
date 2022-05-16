@@ -62,7 +62,7 @@ const SavedContent = () => {
       <ul>
         {SavedPages.map((data) => {
           return (
-            <li>
+            <li key={data.url}>
               <Link href={data.url}>{data.title}</Link>
             </li>
           );
