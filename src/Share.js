@@ -18,10 +18,12 @@ function Share(props) {
   const [tooltipText, setToolTipText] = useState("Save");
 
   useEffect(() => {
-    const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
-    if (SavedPages.filter((data) => data.url === props.url).length > 0) {
-      setHeartColor(redColor);
-      setToolTipText("Saved");
+    if (localStorage.getItem("SavedPage")) {
+      const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
+      if (SavedPages.filter((data) => data.url === props.url).length > 0) {
+        setHeartColor(redColor);
+        setToolTipText("Saved");
+      }
     }
   }, []);
 
