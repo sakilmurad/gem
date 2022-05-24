@@ -71,7 +71,7 @@ const SavedContent = () => {
             );
           })
         ) : (
-          <li>You haven't saved any page yet...</li>
+          <li>You haven&apos;t saved any page yet...</li>
         )}
       </ul>
     </>
