@@ -55,18 +55,24 @@ const Tools = () => {
 };
 
 const SavedContent = () => {
-  const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
+  if (localStorage.getItem("SavedPage")) {
+    const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
+  }
   return (
     <>
       <h3 className="center-text">All your saved page</h3>
       <ul>
-        {SavedPages.map((data) => {
-          return (
-            <li key={data.url}>
-              <Link href={data.url}>{data.title}</Link>
-            </li>
-          );
-        })}
+        {SavedPages.length > 0 ? (
+          SavedPages.map((data) => {
+            return (
+              <li key={data.url}>
+                <Link href={data.url}>{data.title}</Link>
+              </li>
+            );
+          })
+        ) : (
+          <li>You haven't saved any page yet...</li>
+        )}
       </ul>
     </>
   );

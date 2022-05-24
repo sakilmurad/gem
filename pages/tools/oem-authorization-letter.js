@@ -65,7 +65,7 @@ function OEM() {
       <Share
         title="OEM Authorization Letter Generator for GeM"
         text="All the Free Tools provided by Edafter"
-        url="tools/oem-authorization-letter"
+        url="/tools/oem-authorization-letter"
       />
 
       <Grid container spacing={2}>

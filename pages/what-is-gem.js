@@ -25,6 +25,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import YouTube from "../src/Youtube";
 import Ads from "../src/Ads";
+import Share from "../src/Share";
 const getNestedHeadings = (headingElements) => {
   const nestedHeadings = [];
 
@@ -145,6 +146,11 @@ const Home = () => {
         <Grid item xs={12} sm={9.5}>
           <Paper elevation={3} sx={{ p: "20px" }}>
             <h1>GeM - Government e-Marketplace</h1>
+            <Share
+              title="GeM - Government e-Marketplace"
+              text="Learn everything about GeM (Government e-Marketplace) online for free on Edafter's GeM Portal Course."
+              url="/what-is-gem"
+            />
             <Divider />
             <p>
               <b>GeM</b> is stand for <b>Government e-Marketplace</b>. The

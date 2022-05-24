@@ -73,7 +73,7 @@ function MII() {
       <Share
         title="Make In India (MII) Certificate Generator for GeM"
         text="All the Free Tools provided by Edafter"
-        url="tools/make-in-india"
+        url="/tools/make-in-india"
       />
 
       <Grid container spacing={2}>

@@ -78,7 +78,7 @@ function Reseller() {
       <Share
         title="Reseller Authorization Letter Generator for GeM"
         text="All the Free Tools provided by Edafter"
-        url="tools/reseller-authority-letter"
+        url="/tools/reseller-authority-letter"
       />
 
       <Grid container spacing={2}>

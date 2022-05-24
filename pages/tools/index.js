@@ -40,7 +40,7 @@ function Ft() {
       <Share
         title="Free tools for GeM"
         text="All the Free Tools provided by Edafter"
-        url="tools"
+        url="/tools"
       />
 
       <Box sx={{ flexGrow: 1 }}>

@@ -66,7 +66,7 @@ function Bfs() {
       <Share
         title="Bidder Financial Standing Letter Generator for GeM"
         text="All the Free Tools provided by Edafter"
-        url="tools/bidder-financial-standing"
+        url="/tools/bidder-financial-standing"
       />
 
       <Grid container spacing={2}>

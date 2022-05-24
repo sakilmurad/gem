@@ -27,6 +27,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { useRouter } from "next/router";
 import YouTube from "../src/Youtube";
 import Ads from "../src/Ads";
+import Share from "../src/Share";
 const components = {
   Button,
   Link,
@@ -166,6 +167,7 @@ const Post = ({ frontMatter: { title, description }, mdxSource }) => {
                 </Link>
               </Breadcrumbs>
               <h1>{title}</h1>
+              <Share title={title} text={description} url={asPath} />
               <Divider />
               <MDXRemote {...mdxSource} components={components} />
               Was this helpful:

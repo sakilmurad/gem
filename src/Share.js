@@ -64,7 +64,7 @@ function Share(props) {
           data={{
             text: props.text,
             title: props.title,
-            url: `${domain}/${props.url}`,
+            url: `${domain}${props.url}`,
           }}
         >
           <Tooltip title="Share">
