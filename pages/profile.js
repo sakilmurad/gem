@@ -17,9 +17,24 @@ import ListItemText from "@mui/material/ListItemText";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import BuildIcon from "@mui/icons-material/Build";
 import Link from "next/link";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import Head from "next/head";
 
 const auth = getAuth();
 const user = auth.currentUser;
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const Tools = () => {
   return (
@@ -57,12 +72,14 @@ const Tools = () => {
 const SavedContent = () => {
   if (localStorage.getItem("SavedPage")) {
     const SavedPages = JSON.parse(localStorage.getItem("SavedPage"));
+  } else {
+    const SavedPages = [];
   }
   return (
     <>
       <h3 className="center-text">All your saved page</h3>
       <ul>
-        {SavedPages.length > 0 ? (
+        {SavedPages ? (
           SavedPages.map((data) => {
             return (
               <li key={data.url}>
@@ -71,7 +88,7 @@ const SavedContent = () => {
             );
           })
         ) : (
-          <li>You haven&apos;t saved any page yet...</li>
+          <p>You haven&apos;t saved any page yet...</p>
         )}
       </ul>
     </>
@@ -93,6 +110,9 @@ function Profile() {
   const [content, setContent] = useState(<Tools />);
 
   const [selectedIndex, setSelectedIndex] = React.useState(0);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleListItemClick = (event, index) => {
     setSelectedIndex(index);
@@ -123,6 +143,10 @@ function Profile() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Head>
+        <title>Profile - {displayName}</title>
+      </Head>
+
       <Paper elevation={3}>
         <h1 className="center mt2">Welcome {displayName}</h1>
         <Grid container spacing={2} sx={{ padding: 2 }}>
@@ -148,6 +172,7 @@ function Profile() {
                   variant="contained"
                   size="small"
                   endIcon={<JoinFullIcon />}
+                  onClick={handleOpen}
                 >
                   Remove Ads
                 </Button>
@@ -192,6 +217,22 @@ function Profile() {
           </Grid>
         </Grid>
       </Paper>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Remove Ads on GeM Portal Course
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            You have to pay Rs 500/- to support and remove Ads on the website.
+            Write an email on edafter2022@gmail.com for more details.
+          </Typography>
+        </Box>
+      </Modal>
     </Box>
   );
 }
